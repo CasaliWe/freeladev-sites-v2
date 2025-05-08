@@ -52,6 +52,42 @@ export function AppContextProvider({ children }) {
     }
   ]);
 
+    // Avaliações
+  const [avaliacoes, setAvaliacoes] = useState([
+    {
+      id: 1,
+      nome: "Ricardo Oliveira",
+      empresa: "Arquitetura Moderna",
+      cargo: "Diretor",
+      avaliacao: 5,
+      comentario: "Superou nossas expectativas. O site ficou extremamente profissional e começamos a receber contatos qualificados já na primeira semana após o lançamento."
+    },
+    {
+      id: 2,
+      nome: "Marina Silva",
+      empresa: "Ecomoda Sustentável",
+      cargo: "CEO",
+      avaliacao: 4.5,
+      comentario: "Nossa loja virtual ficou fantástica! A usabilidade e o design estão perfeitos. A equipe foi muito atenciosa durante todo o processo."
+    },
+    {
+      id: 3,
+      nome: "Carlos Mendes",
+      empresa: "Clínica Saúde Total",
+      cargo: "Administrador",
+      avaliacao: 5,
+      comentario: "O aplicativo desenvolvido pela Freeladev revolucionou nosso sistema de agendamentos. Reduzimos as faltas em 70% e aumentamos a satisfação dos pacientes."
+    },
+    {
+      id: 4,
+      nome: "Juliana Ferreira",
+      empresa: "Cursos Online",
+      cargo: "Diretora de Marketing",
+      avaliacao: 5,
+      comentario: "O resultado superou todas as expectativas. A landing page converteu 3x mais que a anterior e o design é simplesmente sensacional."
+    }
+  ])
+
   // Serviços
   const [servicos, setServicos] = useState([
     {
@@ -103,42 +139,6 @@ export function AppContextProvider({ children }) {
       ]
     }
   ]);
-
-  // Avaliações
-  const [avaliacoes, setAvaliacoes] = useState([
-    {
-      id: 1,
-      nome: "Ricardo Oliveira",
-      empresa: "Arquitetura Moderna",
-      cargo: "Diretor",
-      avaliacao: 5,
-      comentario: "Superou nossas expectativas. O site ficou extremamente profissional e começamos a receber contatos qualificados já na primeira semana após o lançamento."
-    },
-    {
-      id: 2,
-      nome: "Marina Silva",
-      empresa: "Ecomoda Sustentável",
-      cargo: "CEO",
-      avaliacao: 4.5,
-      comentario: "Nossa loja virtual ficou fantástica! A usabilidade e o design estão perfeitos. A equipe foi muito atenciosa durante todo o processo."
-    },
-    {
-      id: 3,
-      nome: "Carlos Mendes",
-      empresa: "Clínica Saúde Total",
-      cargo: "Administrador",
-      avaliacao: 5,
-      comentario: "O aplicativo desenvolvido pela Freeladev revolucionou nosso sistema de agendamentos. Reduzimos as faltas em 70% e aumentamos a satisfação dos pacientes."
-    },
-    {
-      id: 4,
-      nome: "Juliana Ferreira",
-      empresa: "Cursos Online",
-      cargo: "Diretora de Marketing",
-      avaliacao: 5,
-      comentario: "O resultado superou todas as expectativas. A landing page converteu 3x mais que a anterior e o design é simplesmente sensacional."
-    }
-  ])
 
   // Diferenciais
   const [diferenciais, setDiferenciais] = useState([
