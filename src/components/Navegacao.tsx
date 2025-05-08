@@ -62,6 +62,20 @@ const Navegacao = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  // Efeito para gerenciar o overflow do body quando o menu estiver aberto
+  useEffect(() => {
+    // Previne rolagem no body quando o menu estiver aberto
+    if (menuAberto) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuAberto]);
   
   // Função para navegar para uma seção e fechar o menu
   const navegarParaSecao = (id: string) => {
@@ -130,7 +144,7 @@ const Navegacao = () => {
           {menuAberto ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
         
-        {/* Menu mobile */}
+        {/* Menu mobile - Corrigido para funcionar após scroll */}
         <div
           ref={menuRef}
           className={`
@@ -138,6 +152,15 @@ const Navegacao = () => {
             transition-transform duration-300 ease-in-out md:hidden
             ${menuAberto ? "translate-x-0" : "translate-x-full"}
           `}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 40,
+            backgroundColor: 'rgba(10, 10, 15, 0.97)', // Fundo escuro ligeiramente transparente
+          }}
         >
           <nav className="flex flex-col items-center gap-6">
             {itensMenu.map((item) => (
