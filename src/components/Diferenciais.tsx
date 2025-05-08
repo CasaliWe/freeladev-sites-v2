@@ -1,5 +1,5 @@
 
-import { Monitor, Code, Design } from "lucide-react";
+import { Monitor, Code } from "lucide-react";
 import AnimacaoScroll from "./AnimacaoScroll";
 
 // Interface para definir os dados de um diferencial
@@ -28,7 +28,7 @@ const Diferenciais = () => {
     {
       titulo: "Design Exclusivo",
       descricao: "Criações únicas e personalizadas para cada cliente. Identidade visual exclusiva com elementos customizados para o seu negócio se destacar da concorrência.",
-      icone: <Design className="w-10 h-10" />
+      icone: <DesignIcon className="w-10 h-10" />
     }
   ];
 
@@ -81,7 +81,7 @@ const Diferenciais = () => {
   );
 };
 
-// Necessário criar o componente de ícone Search (não disponível diretamente no lucide-react)
+// Componente de ícone Search (não disponível diretamente no lucide-react)
 const Search = ({ className = "" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -100,8 +100,8 @@ const Search = ({ className = "" }) => (
   </svg>
 );
 
-// Necessário criar o componente de ícone Design (não disponível diretamente no lucide-react)
-const Design = ({ className = "" }) => (
+// Componente de ícone Design renomeado para DesignIcon para evitar conflitos
+const DesignIcon = ({ className = "" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
