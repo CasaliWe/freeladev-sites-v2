@@ -1,5 +1,6 @@
 
 import AnimacaoScroll from "./AnimacaoScroll";
+import { Target, Eye, Sparkles, Heart } from "lucide-react";
 
 /**
  * Componente da seção "Quem Somos" com informações sobre a empresa
@@ -56,25 +57,34 @@ const QuemSomos = () => {
               </p>
             </AnimacaoScroll>
             
-            {/* Missão, Visão e Valores com destaque visual */}
+            {/* Missão, Visão e Valores com ícones */}
             <AnimacaoScroll atraso="delay-400">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 <div className="bg-secundaria border border-white/10 rounded-xl p-6 hover:border-laranja/30 transition-colors">
-                  <h3 className="text-lg font-bold mb-2">Missão</h3>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Target className="text-laranja h-5 w-5" />
+                    <h3 className="text-lg font-bold">Missão</h3>
+                  </div>
                   <p className="text-white/70 text-sm">
                     Transformar a presença digital dos nossos clientes com soluções inovadoras e de alto impacto.
                   </p>
                 </div>
                 
                 <div className="bg-secundaria border border-white/10 rounded-xl p-6 hover:border-laranja/30 transition-colors">
-                  <h3 className="text-lg font-bold mb-2">Visão</h3>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Eye className="text-laranja h-5 w-5" />
+                    <h3 className="text-lg font-bold">Visão</h3>
+                  </div>
                   <p className="text-white/70 text-sm">
                     Ser referência em desenvolvimento web e mobile no sul do Brasil.
                   </p>
                 </div>
                 
                 <div className="bg-secundaria border border-white/10 rounded-xl p-6 hover:border-laranja/30 transition-colors">
-                  <h3 className="text-lg font-bold mb-2">Valores</h3>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Heart className="text-laranja h-5 w-5" />
+                    <h3 className="text-lg font-bold">Valores</h3>
+                  </div>
                   <ul className="text-white/70 text-sm">
                     <li>• Inovação</li>
                     <li>• Qualidade</li>
@@ -85,7 +95,7 @@ const QuemSomos = () => {
             </AnimacaoScroll>
           </div>
           
-          {/* Lado direito - Imagem/Elemento visual */}
+          {/* Lado direito - Lista de valores com layout melhorado para mobile */}
           <div className="w-full md:w-1/2">
             <AnimacaoScroll>
               <div className="relative">
@@ -94,9 +104,13 @@ const QuemSomos = () => {
                 
                 {/* Gráfico/ilustração de valores */}
                 <div className="bg-secundaria border border-white/5 rounded-2xl p-8 relative">
-                  <h3 className="text-xl font-bold mb-6 text-center">Nossos Valores</h3>
+                  <h3 className="text-xl font-bold mb-6 text-center flex items-center justify-center gap-2">
+                    <Sparkles className="text-laranja h-5 w-5" />
+                    Nossos Valores
+                  </h3>
                   
-                  <div className="grid grid-cols-2 gap-6">
+                  {/* Grid alterado para sempre ser uma coluna no mobile */}
+                  <div className="grid grid-cols-1 gap-6">
                     {valores.map((valor, idx) => (
                       <div 
                         key={idx} 

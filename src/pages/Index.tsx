@@ -5,6 +5,7 @@ import HeroSection from "../components/HeroSection";
 import SliderServicos from "../components/SliderServicos";
 import Diferenciais from "../components/Diferenciais";
 import Portfolio from "../components/Portfolio";
+import AvaliacoesClientes from "../components/AvaliacoesClientes"; // Importando nova seção
 import QuemSomos from "../components/QuemSomos";
 import Contato from "../components/Contato";
 import Rodape from "../components/Rodape";
@@ -73,6 +74,7 @@ const Index = () => {
         <SliderServicos />
         <Diferenciais />
         <Portfolio />
+        <AvaliacoesClientes /> {/* Nova seção de avaliações adicionada */}
         <QuemSomos />
         <Contato />
       </main>

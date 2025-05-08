@@ -92,7 +92,7 @@ const Portfolio = () => {
           <div className="flex overflow-hidden relative rounded-2xl bg-secundaria shadow-2xl border border-white/5">
             {/* Parte visual do projeto */}
             <div className="w-full md:w-2/3 h-[500px] relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-escuro via-transparent to-transparent md:hidden z-10"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-escuro via-transparent to-transparent md:hidden z-10 opacity-50"></div>
               
               {/* Imagem do projeto */}
               <div 
@@ -100,8 +100,8 @@ const Portfolio = () => {
                 style={{ backgroundImage: `url(${projetos[projetoAtivo].imagem})` }}
               />
               
-              {/* Gradiente de sobreposição para efeito visual */}
-              <div className="absolute inset-0 bg-gradient-to-t from-escuro to-transparent opacity-70"></div>
+              {/* Gradiente de sobreposição para efeito visual - reduzido no mobile */}
+              <div className="absolute inset-0 bg-gradient-to-t from-escuro to-transparent opacity-50 md:opacity-70"></div>
               
               {/* Sobreposição do dispositivo mock (efeito decorativo) */}
               <div className="absolute inset-0 flex items-center justify-center">
@@ -109,8 +109,8 @@ const Portfolio = () => {
               </div>
             </div>
             
-            {/* Detalhes do projeto */}
-            <div className="absolute md:relative w-full md:w-1/3 bottom-0 left-0 p-8 md:p-12 md:flex md:flex-col md:justify-center bg-escuro/80 md:bg-secundaria backdrop-blur-sm md:backdrop-blur-0 z-20">
+            {/* Detalhes do projeto - mais transparente no mobile */}
+            <div className="absolute md:relative w-full md:w-1/3 bottom-0 left-0 p-8 md:p-12 md:flex md:flex-col md:justify-center bg-escuro/60 md:bg-secundaria backdrop-blur-sm md:backdrop-blur-0 z-20">
               <span className="text-laranja text-sm font-medium uppercase tracking-wider mb-2 block">
                 {projetos[projetoAtivo].categoria}
               </span>

@@ -1,6 +1,6 @@
 
-import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Menu, X, Facebook, Instagram } from "lucide-react";
 import BotaoWhatsapp from "./BotaoWhatsapp";
 
 /**
@@ -12,6 +12,9 @@ const Navegacao = () => {
   
   // Estado para controlar a aparência da navegação ao rolar
   const [navCompacta, setNavCompacta] = useState(false);
+
+  // Referência para o componente de menu
+  const menuRef = useRef<HTMLDivElement>(null);
   
   // Lista de itens do menu
   const itensMenu = [
@@ -21,6 +24,12 @@ const Navegacao = () => {
     { nome: "Portfólio", id: "portfolio" },
     { nome: "Quem Somos", id: "quemSomos" },
     { nome: "Contato", id: "contato" },
+  ];
+
+  // Lista de redes sociais
+  const redesSociais = [
+    { nome: "Facebook", icone: <Facebook className="h-5 w-5" />, url: "https://facebook.com" },
+    { nome: "Instagram", icone: <Instagram className="h-5 w-5" />, url: "https://instagram.com" },
   ];
   
   // Altera a aparência da navegação ao rolar
@@ -39,6 +48,20 @@ const Navegacao = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  // Adiciona manipulador de cliques fora do menu para fechá-lo
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setMenuAberto(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
   
   // Função para navegar para uma seção e fechar o menu
   const navegarParaSecao = (id: string) => {
@@ -50,6 +73,11 @@ const Navegacao = () => {
       // Rola suavemente até o elemento
       elemento.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  // Função para abrir links de redes sociais
+  const abrirLink = (url: string) => {
+    window.open(url, "_blank");
   };
   
   return (
@@ -104,6 +132,7 @@ const Navegacao = () => {
         
         {/* Menu mobile */}
         <div
+          ref={menuRef}
           className={`
             fixed inset-0 bg-escuro flex flex-col justify-center items-center
             transition-transform duration-300 ease-in-out md:hidden
@@ -124,6 +153,21 @@ const Navegacao = () => {
                 {item.nome}
               </a>
             ))}
+            
+            {/* Botões de redes sociais para mobile */}
+            <div className="flex gap-4 mt-4">
+              {redesSociais.map((rede, idx) => (
+                <button 
+                  key={idx} 
+                  onClick={() => abrirLink(rede.url)}
+                  className="bg-secundaria hover:bg-laranja text-white p-3 rounded-full transition-colors"
+                  aria-label={rede.nome}
+                >
+                  {rede.icone}
+                </button>
+              ))}
+            </div>
+            
             <BotaoWhatsapp className="mt-4" />
           </nav>
         </div>
