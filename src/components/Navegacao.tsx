@@ -96,7 +96,7 @@ const Navegacao = () => {
         {/* Botão para abrir/fechar menu mobile */}
         <button
           onClick={() => setMenuAberto(!menuAberto)}
-          className="md:hidden text-white p-2"
+          className="md:hidden text-white p-2 relative z-50"
           aria-label={menuAberto ? "Fechar menu" : "Abrir menu"}
         >
           {menuAberto ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

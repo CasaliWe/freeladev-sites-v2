@@ -44,12 +44,12 @@ const BotaoWhatsapp = ({
       aria-label="Entrar em contato pelo WhatsApp"
       className={`
         bg-laranja text-white flex items-center justify-center gap-2
-        transition-all duration-300 hover:bg-laranja-600 botao-animado
+        transition-all duration-300 hover:bg-laranja-600 
         ${classesFlutuante} ${className}
       `}
     >
       <Phone className="w-5 h-5" />
-      {!flutuante && <span>{texto}</span>}
+      {!flutuante && <span className="relative z-10">{texto}</span>}
     </button>
   );
 };

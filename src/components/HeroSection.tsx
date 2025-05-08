@@ -27,7 +27,7 @@ const HeroSection = () => {
       </div>
       
       <div className="container mx-auto px-4 py-12 md:py-20 relative z-10">
-        <div className="flex flex-col md:flex-row items-center gap-12">
+        <div className="flex flex-col md:flex-row items-center gap-12 pt-10 md:pt-0">
           {/* Textos e chamadas para ação */}
           <div className="w-full md:w-1/2 text-center md:text-left">
             <AnimacaoScroll>
@@ -37,7 +37,7 @@ const HeroSection = () => {
             </AnimacaoScroll>
             
             <AnimacaoScroll atraso="delay-100">
-              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6">
+              <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold mb-6">
                 Transforme sua <span className="texto-gradiente">presença digital</span> em resultados
               </h1>
             </AnimacaoScroll>
@@ -57,7 +57,7 @@ const HeroSection = () => {
                   className="py-3 px-6 rounded-full border border-white/20 text-white 
                            hover:bg-white/5 transition-all duration-300 flex items-center justify-center gap-2"
                 >
-                  Ver serviços
+                  <span className="relative z-10">Ver serviços</span>
                   <ArrowDown className="w-4 h-4" />
                 </button>
               </div>
@@ -65,7 +65,7 @@ const HeroSection = () => {
           </div>
           
           {/* Ilustração/imagem */}
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-1/2 mt-10 md:mt-0">
             <AnimacaoScroll atraso="delay-200">
               <div className="relative">
                 {/* Elemento decorativo */}

@@ -180,16 +180,25 @@ const SliderServicos = () => {
             </div>
           </div>
           
-          {/* Indicadores */}
-          <div className="flex justify-center mt-8 gap-2">
+          {/* Indicadores melhorados */}
+          <div className="flex justify-center mt-8 gap-3">
             {servicos.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setServicoAtivo(idx)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 
-                         ${idx === servicoAtivo ? "bg-laranja w-6" : "bg-white/30"}`}
                 aria-label={`Ver serviço ${idx + 1}`}
-              />
+                className={`
+                  w-3 h-3 rounded-full transition-all duration-300 relative
+                  ${idx === servicoAtivo 
+                    ? "bg-laranja" 
+                    : "bg-white/30 hover:bg-white/50"
+                  }
+                `}
+              >
+                {idx === servicoAtivo && (
+                  <span className="absolute inset-0 rounded-full bg-laranja/30 animate-ping"></span>
+                )}
+              </button>
             ))}
           </div>
         </div>

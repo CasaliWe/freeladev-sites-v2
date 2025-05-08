@@ -110,21 +110,11 @@ const Rodape = () => {
         </div>
         
         {/* Linha divisória */}
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          {/* Copyright */}
-          <p className="text-white/50 text-sm">
+        <div className="border-t border-white/5 pt-8 flex justify-center">
+          {/* Copyright centralizado */}
+          <p className="text-white/50 text-sm text-center">
             © {anoAtual} Freeladev. Todos os direitos reservados.
           </p>
-          
-          {/* Links de políticas */}
-          <div className="flex gap-6">
-            <a href="#" className="text-white/50 text-sm hover:text-laranja transition-colors">
-              Política de Privacidade
-            </a>
-            <a href="#" className="text-white/50 text-sm hover:text-laranja transition-colors">
-              Termos de Uso
-            </a>
-          </div>
         </div>
       </div>
     </footer>

@@ -95,6 +95,7 @@
     @apply opacity-100;
   }
   
+  /* Animação de entrada para os elementos */
   .animacao-entrada {
     opacity: 0;
     transform: translateY(30px);
