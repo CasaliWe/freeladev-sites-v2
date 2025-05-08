@@ -1,5 +1,6 @@
 
 import { Phone } from "lucide-react";
+import { useAppContext } from "@/contexts/AppContext";
 
 // Interface para definir as propriedades do componente
 interface BotaoWhatsappProps {
@@ -17,12 +18,11 @@ const BotaoWhatsapp = ({
   className = "", 
   flutuante = false 
 }: BotaoWhatsappProps) => {
-  // Número do WhatsApp e mensagem pré-definida
-  const telefone = "5554999999999"; // Substitua pelo número real
-  const mensagemPadrao = "Olá! Gostaria de saber mais sobre os serviços da Freeladev.";
+
+  const { dados, atualizarDados } = useAppContext();
   
   // URL de redirecionamento para o WhatsApp
-  const whatsappUrl = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagemPadrao)}`;
+  const whatsappUrl = dados.wpp_float;
   
   // Evento de clique no botão
   const abrirWhatsapp = () => {

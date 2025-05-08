@@ -2,11 +2,15 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, Facebook, Instagram } from "lucide-react";
 import BotaoWhatsapp from "./BotaoWhatsapp";
+import { useAppContext } from "@/contexts/AppContext";
+
 
 /**
  * Componente de navegação principal (header)
  */
 const Navegacao = () => {
+  const { dados, atualizarDados } = useAppContext();
+
   // Estado para controlar a visibilidade do menu mobile
   const [menuAberto, setMenuAberto] = useState(false);
   
@@ -28,8 +32,8 @@ const Navegacao = () => {
 
   // Lista de redes sociais
   const redesSociais = [
-    { nome: "Facebook", icone: <Facebook className="h-5 w-5" />, url: "https://facebook.com" },
-    { nome: "Instagram", icone: <Instagram className="h-5 w-5" />, url: "https://instagram.com" },
+    { nome: "Facebook", icone: <Facebook className="h-5 w-5" />, url: `${dados.facebook}` },
+    { nome: "Instagram", icone: <Instagram className="h-5 w-5" />, url: `${dados.instagram}` },
   ];
   
   // Altera a aparência da navegação ao rolar
@@ -67,12 +71,28 @@ const Navegacao = () => {
   useEffect(() => {
     // Previne rolagem no body quando o menu estiver aberto
     if (menuAberto) {
+      // Salva a posição atual do scroll
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
     } else {
+      // Restaura a posição do scroll quando o menu for fechado
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
       document.body.style.overflow = '';
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+      }
     }
     
     return () => {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
       document.body.style.overflow = '';
     };
   }, [menuAberto]);
@@ -97,7 +117,7 @@ const Navegacao = () => {
   return (
     <header
       className={`
-        fixed top-0 left-0 right-0 z-50 transition-all duration-300
+        relative md:fixed top-0 left-0 right-0 z-50 transition-all duration-300
         ${navCompacta ? "py-2 efeito-vidro" : "py-4 bg-transparent"}
       `}
     >
@@ -144,7 +164,7 @@ const Navegacao = () => {
           {menuAberto ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
         
-        {/* Menu mobile - Corrigido para funcionar após scroll */}
+        {/* Menu mobile */}
         <div
           ref={menuRef}
           className={`

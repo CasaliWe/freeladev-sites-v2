@@ -3,6 +3,8 @@ import { useState } from "react";
 import AnimacaoScroll from "./AnimacaoScroll";
 import BotaoWhatsapp from "./BotaoWhatsapp";
 import { ArrowRight, ArrowLeft, ExternalLink } from "lucide-react";
+import { useAppContext } from "@/contexts/AppContext";
+
 
 // Interface para os projetos do portfólio
 interface Projeto {
@@ -18,41 +20,7 @@ interface Projeto {
  * Componente de portfólio com carrossel de projetos
  */
 const Portfolio = () => {
-  // Lista de projetos do portfólio (dados fictícios)
-  const projetos: Projeto[] = [
-    {
-      id: 1,
-      titulo: "Site Institucional - Arquitetura Moderna",
-      categoria: "Website",
-      descricao: "Design elegante e minimalista para escritório de arquitetura com foco em projetos sustentáveis.",
-      imagem: "placeholder.svg", // Usando placeholder como imagem temporária
-      link: "#"
-    },
-    {
-      id: 2,
-      titulo: "E-commerce - Moda Sustentável",
-      categoria: "E-commerce",
-      descricao: "Loja online completa com sistema de pagamento integrado e experiência de compra otimizada.",
-      imagem: "placeholder.svg",
-      link: "#"
-    },
-    {
-      id: 3,
-      titulo: "App para Clínica Médica",
-      categoria: "Aplicativo Mobile",
-      descricao: "Aplicativo para agendamento de consultas e acompanhamento de tratamentos.",
-      imagem: "placeholder.svg",
-      link: "#"
-    },
-    {
-      id: 4,
-      titulo: "Landing Page - Curso Online",
-      categoria: "Landing Page",
-      descricao: "Página de conversão para captação de leads e vendas de curso digital.",
-      imagem: "placeholder.svg",
-      link: "#"
-    }
-  ];
+  const { projetos } = useAppContext();
   
   // Estado para controlar o projeto ativo no carrossel
   const [projetoAtivo, setProjetoAtivo] = useState(0);

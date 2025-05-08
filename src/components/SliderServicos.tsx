@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Code, Smartphone, Monitor, Search } from "lucide-react";
 import AnimacaoScroll from "./AnimacaoScroll";
 import BotaoWhatsapp from "./BotaoWhatsapp";
+import { useAppContext } from "@/contexts/AppContext";
+
 
 // Interface para definir os dados de um serviço
 interface Servico {
@@ -18,56 +20,8 @@ interface Servico {
  */
 const SliderServicos = () => {
   // Lista de serviços oferecidos
-  const servicos: Servico[] = [
-    {
-      id: 1,
-      titulo: "Sites & Landing Pages",
-      descricao: "Criação de websites profissionais e landing pages otimizadas para conversão",
-      icone: <Monitor className="w-12 h-12" />,
-      detalhes: [
-        "Design personalizado e exclusivo",
-        "Estrutura pensada para conversão",
-        "Otimização para dispositivos móveis",
-        "Hospedagem e suporte inclusos"
-      ]
-    },
-    {
-      id: 2,
-      titulo: "Aplicativos Mobile",
-      descricao: "Desenvolvimento de aplicativos nativos e híbridos para iOS e Android",
-      icone: <Smartphone className="w-12 h-12" />,
-      detalhes: [
-        "Experiência de usuário intuitiva",
-        "Design responsivo e moderno",
-        "Funcionalidades personalizadas",
-        "Publicação nas lojas de aplicativos"
-      ]
-    },
-    {
-      id: 3,
-      titulo: "Otimização SEO",
-      descricao: "Estratégias para melhorar o posicionamento do seu site nos buscadores",
-      icone: <Search className="w-12 h-12" />,
-      detalhes: [
-        "Análise de palavras-chave",
-        "Otimização de conteúdo",
-        "Performance técnica",
-        "Relatórios de resultados"
-      ]
-    },
-    {
-      id: 4,
-      titulo: "Agentes IA para WhatsApp",
-      descricao: "Automação inteligente para atendimento e suporte no WhatsApp",
-      icone: <Code className="w-12 h-12" />,
-      detalhes: [
-        "Respostas automáticas personalizadas",
-        "Integração com sistemas internos",
-        "Análise de conversas e métricas",
-        "Atendimento 24/7 automatizado"
-      ]
-    }
-  ];
+  const { servicos } = useAppContext();
+
   
   // Estado para controlar o serviço ativo no slider
   const [servicoAtivo, setServicoAtivo] = useState(0);

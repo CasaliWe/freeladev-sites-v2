@@ -3,11 +3,15 @@ import { useState } from "react";
 import { Mail, Send } from "lucide-react";
 import AnimacaoScroll from "./AnimacaoScroll";
 import BotaoWhatsapp from "./BotaoWhatsapp";
+import { useAppContext } from "@/contexts/AppContext";
+
 
 /**
  * Componente de formulário de contato
  */
 const Contato = () => {
+  const { dados, atualizarDados } = useAppContext();
+
   // Estados para controle do formulário
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
@@ -26,7 +30,7 @@ const Contato = () => {
       return;
     }
     
-    // Simulação de envio (aqui seria integrado com backend real)
+    // Simulação de envio
     try {
       setErro("");
       setEnviando(true);
@@ -149,7 +153,7 @@ const Contato = () => {
                   disabled={enviando}
                   className={`
                     w-full bg-laranja text-white rounded-lg py-3 px-4 font-medium
-                    flex items-center justify-center gap-2 botao-animado
+                    flex items-center justify-center gap-2
                     ${enviando ? "opacity-70 cursor-not-allowed" : ""}
                   `}
                 >
@@ -183,20 +187,20 @@ const Contato = () => {
                 <div className="space-y-4">
                   <div>
                     <span className="text-laranja font-medium block">Localização</span>
-                    <p className="text-white/80">Passo Fundo, RS</p>
+                    <p className="text-white/80">{dados.localizacao}</p>
                   </div>
                   
                   <div>
                     <span className="text-laranja font-medium block">E-mail</span>
-                    <a href="mailto:contato@freeladev.com.br" className="text-white/80 hover:text-white">
-                      contato@freeladev.com.br
+                    <a href="" className="text-white/80 hover:text-white">
+                      {dados.email}
                     </a>
                   </div>
-                  
+
                   <div>
                     <span className="text-laranja font-medium block">Telefone/WhatsApp</span>
-                    <a href="tel:+5554999999999" className="text-white/80 hover:text-white">
-                      (54) 99999-9999
+                    <a href="" className="text-white/80 hover:text-white">
+                      {dados.wpp}
                     </a>
                   </div>
                 </div>
@@ -220,7 +224,7 @@ const Contato = () => {
                 <button
                   onClick={() => {
                     // URL de redirecionamento para o WhatsApp
-                    const whatsappUrl = `https://wa.me/5554999999999?text=${encodeURIComponent("Olá! Gostaria de saber mais sobre os serviços da Freeladev.")}`;
+                    const whatsappUrl = `${dados.wpp_float}?text=${encodeURIComponent("Olá! Gostaria de saber mais sobre os serviços da Freeladev.")}`;
                     window.open(whatsappUrl, "_blank");
                   }}
                   className="bg-white text-laranja rounded-lg py-3 px-6 font-medium

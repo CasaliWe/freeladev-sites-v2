@@ -1,6 +1,9 @@
 
 import { Monitor, Code } from "lucide-react";
 import AnimacaoScroll from "./AnimacaoScroll";
+import { useAppContext } from "@/contexts/AppContext";
+
+
 
 // Interface para definir os dados de um diferencial
 interface Diferencial {
@@ -13,24 +16,10 @@ interface Diferencial {
  * Componente para a seção de diferenciais da empresa
  */
 const Diferenciais = () => {
+
   // Lista de diferenciais da empresa
-  const listaDiferenciais: Diferencial[] = [
-    {
-      titulo: "Sites Responsivos",
-      descricao: "Experiência perfeita em qualquer dispositivo - desktop, tablet ou smartphone. Design adaptativo que mantém a identidade visual e funcionalidades em todas as telas.",
-      icone: <Monitor className="w-10 h-10" />
-    },
-    {
-      titulo: "Otimização SEO",
-      descricao: "Presença efetiva nos resultados de busca do Google. Sites estruturados para indexação, carregamento rápido e com conteúdo otimizado para palavras-chave estratégicas.",
-      icone: <Search className="w-10 h-10" />
-    },
-    {
-      titulo: "Design Exclusivo",
-      descricao: "Criações únicas e personalizadas para cada cliente. Identidade visual exclusiva com elementos customizados para o seu negócio se destacar da concorrência.",
-      icone: <DesignIcon className="w-10 h-10" />
-    }
-  ];
+  const { diferenciais } = useAppContext();
+
 
   return (
     <section id="diferenciais" className="py-20 bg-escuro relative overflow-hidden">
@@ -55,7 +44,7 @@ const Diferenciais = () => {
         
         {/* Grade de diferenciais */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {listaDiferenciais.map((diferencial, idx) => (
+          {diferenciais.map((diferencial, idx) => (
             <AnimacaoScroll 
               key={idx} 
               atraso={`delay-${(idx + 1) * 100}` as "delay-100" | "delay-200" | "delay-300" | "delay-400"}

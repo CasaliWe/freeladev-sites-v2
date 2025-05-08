@@ -43,7 +43,7 @@ const NotFound = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a 
                 href="/" 
-                className="px-6 py-3 bg-laranja text-white rounded-full botao-animado"
+                className="px-6 py-3 bg-laranja text-white rounded-full"
               >
                 Voltar para o início
               </a>
