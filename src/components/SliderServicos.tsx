@@ -36,14 +36,6 @@ const SliderServicos = () => {
     setServicoAtivo(atual => (atual - 1 + servicos.length) % servicos.length);
   };
   
-  // Alternar automaticamente os serviços a cada 5 segundos
-  useEffect(() => {
-    const intervalo = setInterval(() => {
-      proximoServico();
-    }, 5000);
-    
-    return () => clearInterval(intervalo);
-  }, []);
   
   return (
     <section id="servicos" className="py-20 relative overflow-hidden">

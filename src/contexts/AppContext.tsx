@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Code, Smartphone, Monitor } from "lucide-react";
 
 
@@ -8,83 +8,35 @@ export const AppContext = createContext(null);
 export function AppContextProvider({ children }) {
   // Dados
   const [dados, setDados] = useState({
-    wpp: '(54) 99327-8967',
-    wpp_float: 'https://wa.me/5554993278967',
-    localizacao: 'Passo Fundo - RS',
-    email: 'contato@freeladevsites.com.br',
-    instagram: 'https://www.instagram.com/freeladev_sites/',
-    facebook: 'https://www.facebook.com/people/freeladev/100089380789740/',
+    wpp: '',
+    wpp_float: '',
+    localizacao: '',
+    email: '',
+    instagram: '',
+    facebook: '',
   });
 
   // Projetos
   const [projetos, setProjetos] = useState([
     {
       id: 1,
-      titulo: "Site Institucional - Arquitetura Moderna",
-      categoria: "Website",
-      descricao: "Design elegante e minimalista para escritório de arquitetura com foco em projetos sustentáveis.",
-      imagem: "placeholder.svg", // Usando placeholder como imagem temporária
-      link: "#"
-    },
-    {
-      id: 2,
-      titulo: "E-commerce - Moda Sustentável",
-      categoria: "E-commerce",
-      descricao: "Loja online completa com sistema de pagamento integrado e experiência de compra otimizada.",
-      imagem: "placeholder.svg",
-      link: "#"
-    },
-    {
-      id: 3,
-      titulo: "App para Clínica Médica",
-      categoria: "Aplicativo Mobile",
-      descricao: "Aplicativo para agendamento de consultas e acompanhamento de tratamentos.",
-      imagem: "placeholder.svg",
-      link: "#"
-    },
-    {
-      id: 4,
-      titulo: "Landing Page - Curso Online",
-      categoria: "Landing Page",
-      descricao: "Página de conversão para captação de leads e vendas de curso digital.",
-      imagem: "placeholder.svg",
-      link: "#"
+      titulo: "",
+      categoria: "",
+      descricao: "",
+      imagem: "", 
+      link: ""
     }
   ]);
 
     // Avaliações
   const [avaliacoes, setAvaliacoes] = useState([
     {
-      id: 1,
-      nome: "Ricardo Oliveira",
-      empresa: "Arquitetura Moderna",
-      cargo: "Diretor",
-      avaliacao: 5,
-      comentario: "Superou nossas expectativas. O site ficou extremamente profissional e começamos a receber contatos qualificados já na primeira semana após o lançamento."
-    },
-    {
-      id: 2,
-      nome: "Marina Silva",
-      empresa: "Ecomoda Sustentável",
-      cargo: "CEO",
-      avaliacao: 4.5,
-      comentario: "Nossa loja virtual ficou fantástica! A usabilidade e o design estão perfeitos. A equipe foi muito atenciosa durante todo o processo."
-    },
-    {
-      id: 3,
-      nome: "Carlos Mendes",
-      empresa: "Clínica Saúde Total",
-      cargo: "Administrador",
-      avaliacao: 5,
-      comentario: "O aplicativo desenvolvido pela Freeladev revolucionou nosso sistema de agendamentos. Reduzimos as faltas em 70% e aumentamos a satisfação dos pacientes."
-    },
-    {
-      id: 4,
-      nome: "Juliana Ferreira",
-      empresa: "Cursos Online",
-      cargo: "Diretora de Marketing",
-      avaliacao: 5,
-      comentario: "O resultado superou todas as expectativas. A landing page converteu 3x mais que a anterior e o design é simplesmente sensacional."
+      id: "",
+      nome: "",
+      empresa: "",
+      cargo: "",
+      avaliacao: "",
+      comentario: ""
     }
   ])
 
@@ -105,7 +57,7 @@ export function AppContextProvider({ children }) {
     {
       id: 2,
       titulo: "Aplicativos Mobile",
-      descricao: "Desenvolvimento de aplicativos nativos e híbridos para iOS e Android",
+      descricao: "Desenvolvimento de aplicativos híbridos para iOS e Android",
       icone: <Smartphone className="w-12 h-12" />,
       detalhes: [
         "Experiência de usuário intuitiva",
@@ -116,26 +68,38 @@ export function AppContextProvider({ children }) {
     },
     {
       id: 3,
-      titulo: "Otimização SEO",
-      descricao: "Estratégias para melhorar o posicionamento do seu site nos buscadores",
-      icone: <Search className="w-12 h-12" />,
+      titulo: "E-commerce",
+      descricao: "Criação de lojas virtuais completas e otimizadas para vendas online",
+      icone: <Code className="w-12 h-12" />,
       detalhes: [
-        "Análise de palavras-chave",
-        "Otimização de conteúdo",
-        "Performance técnica",
-        "Relatórios de resultados"
+        "Integração com meios de pagamento",
+        "Gerenciamento de produtos e estoque",
+        "Design responsivo e otimizado",
+        "Suporte técnico e manutenção"
       ]
     },
     {
       id: 4,
       titulo: "Agentes IA para WhatsApp",
       descricao: "Automação inteligente para atendimento e suporte no WhatsApp",
-      icone: <Code className="w-12 h-12" />,
+      icone: <Search className="w-12 h-12" />,
       detalhes: [
         "Respostas automáticas personalizadas",
         "Integração com sistemas internos",
         "Análise de conversas e métricas",
         "Atendimento 24/7 automatizado"
+      ]
+    },
+    {
+      id: 4,
+      titulo: "Sistema Web Personalizado",
+      descricao: "Desenvolvimento de sistemas web sob medida para atender às necessidades específicas do seu negócio",
+      icone: <Code className="w-12 h-12" />,
+      detalhes: [
+        "Análise de requisitos e planejamento",
+        "Desenvolvimento ágil e iterativo",
+        "Integração com APIs e serviços externos",
+        "Suporte técnico e manutenção contínua"
       ]
     }
   ]);
@@ -159,6 +123,30 @@ export function AppContextProvider({ children }) {
     }
   ]);
 
+
+  // buscando os dados da api e salvando no estado
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}api/buscar-dados.php`);
+      const data = await response.json();
+      setProjetos(data.projetos);
+      setAvaliacoes(data.avaliacoes);
+      setDados({
+        wpp: data.contatos.wpp_principal,
+        wpp_float: `https://wa.me/${formatPhoneNumber(data.contatos.wpp_principal)}`,
+        localizacao: `${data.endereco.cidade} - ${data.endereco.estado}`,
+        email: data.contatos.email_site,
+        instagram: data.contatos.instagram,
+        facebook: data.contatos.facebook
+      })
+    };
+    fetchData();
+  }, []);
+
+  // func para remover todos os carateres de numero de telefone deixando apenas o numero tudo junto
+  const formatPhoneNumber = (phoneNumber) => {
+    return phoneNumber.replace(/\D/g, '');
+  };
 
   return (
     <AppContext.Provider value={{ 

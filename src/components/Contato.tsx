@@ -15,6 +15,7 @@ const Contato = () => {
   // Estados para controle do formulário
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
+  const [telefone, setTelefone] = useState("");
   const [mensagem, setMensagem] = useState("");
   const [enviando, setEnviando] = useState(false);
   const [enviado, setEnviado] = useState(false);
@@ -25,7 +26,7 @@ const Contato = () => {
     e.preventDefault();
     
     // Validação básica
-    if (!nome || !email || !mensagem) {
+    if (!nome || !email || !mensagem || !telefone) {
       setErro("Por favor, preencha todos os campos.");
       return;
     }
@@ -35,27 +36,44 @@ const Contato = () => {
       setErro("");
       setEnviando(true);
       
-      // Simulação de atraso de rede
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      console.log("Formulário enviado:", { nome, email, mensagem });
+      // Enviando form
+      const formData = new FormData();
+      formData.append("nome", nome);
+      formData.append("email", email);
+      formData.append("telefone", telefone);
+      formData.append("mensagem", mensagem);
+
+      const response = await fetch(`${import.meta.env.VITE_API_URL}api/enviar-email.php`, {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+
+      if (data.success == false) {
+        throw new Error("Erro ao enviar o formulário");
+      }
       
       // Limpa o formulário após envio bem-sucedido
       setNome("");
       setEmail("");
       setMensagem("");
+      setTelefone("");
       setEnviado(true);
-      
-      // Reseta o estado de sucesso após 5 segundos
-      setTimeout(() => {
-        setEnviado(false);
-      }, 5000);
     } catch (error) {
       console.error("Erro ao enviar formulário:", error);
       setErro("Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente.");
     } finally {
       setEnviando(false);
     }
+  };
+
+  // Máscara para input de telefone
+  const mascaraTelefone = (value: string) => {
+    return value
+      .replace(/\D/g, "") // Remove caracteres não numéricos
+      .replace(/(\d{2})(\d)/, "($1) $2") // Formata o DDD
+      .replace(/(\d{5})(\d)/, "$1-$2") // Formata o número
+      .replace(/(-\d{4})\d+?$/, "$1"); // Limita a 4 dígitos após o traço
   };
   
   return (
@@ -114,6 +132,23 @@ const Contato = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full bg-escuro border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-laranja transition-colors"
                     placeholder="seu.email@exemplo.com"
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label htmlFor="telefone" className="block text-white/70 mb-2">
+                    Telefone
+                  </label>
+                  <input
+                    type="tel"
+                    id="telefone"
+                    value={telefone}
+                    onChange={(e) => {
+                      const telFormatado = mascaraTelefone(e.target.value);
+                      setTelefone(telFormatado);
+                    }}
+                    className="w-full bg-escuro border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-laranja transition-colors"
+                    placeholder="(54) 99999-9999)"
                   />
                 </div>
                 

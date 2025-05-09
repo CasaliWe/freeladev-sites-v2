@@ -57,10 +57,10 @@ const Portfolio = () => {
         
         {/* Carrossel de projetos */}
         <div className="relative">
-          <div className="flex overflow-hidden relative rounded-2xl bg-secundaria shadow-2xl border border-white/5">
+          <div className="flex flex-col md:flex-row overflow-hidden relative rounded-2xl bg-secundaria shadow-2xl border border-white/5">
             {/* Parte visual do projeto */}
-            <div className="w-full md:w-2/3 h-[500px] relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-escuro via-transparent to-transparent md:hidden z-10 opacity-50"></div>
+            <div className="w-full md:w-2/3 h-[300px] md:h-[500px] relative">
+              {/* Removido o gradiente da esquerda no mobile para melhor visualização */}
               
               {/* Imagem do projeto */}
               <div 
@@ -68,8 +68,8 @@ const Portfolio = () => {
                 style={{ backgroundImage: `url(${projetos[projetoAtivo].imagem})` }}
               />
               
-              {/* Gradiente de sobreposição para efeito visual - reduzido no mobile */}
-              <div className="absolute inset-0 bg-gradient-to-t from-escuro to-transparent opacity-50 md:opacity-70"></div>
+              {/* Gradiente de sobreposição apenas para desktop */}
+              <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-escuro to-transparent opacity-70"></div>
               
               {/* Sobreposição do dispositivo mock (efeito decorativo) */}
               <div className="absolute inset-0 flex items-center justify-center">
@@ -77,8 +77,8 @@ const Portfolio = () => {
               </div>
             </div>
             
-            {/* Detalhes do projeto - mais transparente no mobile */}
-            <div className="absolute md:relative w-full md:w-1/3 bottom-0 left-0 p-8 md:p-12 md:flex md:flex-col md:justify-center bg-escuro/60 md:bg-secundaria backdrop-blur-sm md:backdrop-blur-0 z-20">
+            {/* Detalhes do projeto - layout ajustado para mobile */}
+            <div className="relative w-full md:w-1/3 p-8 md:p-12 flex flex-col justify-center bg-secundaria z-20">
               <span className="text-laranja text-sm font-medium uppercase tracking-wider mb-2 block">
                 {projetos[projetoAtivo].categoria}
               </span>
@@ -103,7 +103,7 @@ const Portfolio = () => {
               )}
               
               {/* Controles de navegação */}
-              <div className="flex gap-4 mt-auto">
+              <div className="flex gap-4 mt-4 md:mt-auto">
                 <button 
                   onClick={projetoAnterior}
                   className="p-3 rounded-full border border-white/20 text-white
@@ -121,11 +121,11 @@ const Portfolio = () => {
                 >
                   <ArrowRight className="w-5 h-5" />
                 </button>
-              </div>
-              
-              {/* Indicador de navegação */}
-              <div className="mt-4 text-white/50 text-sm">
-                {projetoAtivo + 1}/{projetos.length}
+                
+                {/* Indicador de navegação */}
+                <div className="flex items-center ml-4 text-white/50 text-sm">
+                  {projetoAtivo + 1}/{projetos.length}
+                </div>
               </div>
             </div>
           </div>
