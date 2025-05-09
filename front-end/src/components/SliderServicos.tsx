@@ -61,25 +61,25 @@ const SliderServicos = () => {
         {/* Slider de serviços */}
         <div className="relative">
           {/* Botões de navegação */}
-          <div className="absolute top-1/2 left-0 transform -translate-y-1/2 z-20 hidden md:block">
+          <div className="absolute top-1/2 left-0 transform -translate-y-1/2 z-20">
             <button 
               onClick={servicoAnterior}
               className="bg-escuro/80 border border-white/10 rounded-full p-2 
                       text-white/70 hover:text-white hover:border-laranja transition-colors"
               aria-label="Serviço anterior"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
             </button>
           </div>
           
-          <div className="absolute top-1/2 right-0 transform -translate-y-1/2 z-20 hidden md:block">
+          <div className="absolute top-1/2 right-0 transform -translate-y-1/2 z-20">
             <button 
               onClick={proximoServico}
               className="bg-escuro/80 border border-white/10 rounded-full p-2 
                       text-white/70 hover:text-white hover:border-laranja transition-colors"
               aria-label="Próximo serviço"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
             </button>
           </div>
           
