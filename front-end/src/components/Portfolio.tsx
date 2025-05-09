@@ -59,9 +59,7 @@ const Portfolio = () => {
         <div className="relative">
           <div className="flex flex-col md:flex-row overflow-hidden relative rounded-2xl bg-secundaria shadow-2xl border border-white/5">
             {/* Parte visual do projeto */}
-            <div className="w-full md:w-2/3 h-[300px] md:h-[500px] relative">
-              {/* Removido o gradiente da esquerda no mobile para melhor visualização */}
-              
+            <div className="w-full md:w-2/3 h-[200px] md:h-[500px] relative">
               {/* Imagem do projeto */}
               <div 
                 className="w-full h-full bg-center bg-cover bg-no-repeat"
@@ -70,11 +68,6 @@ const Portfolio = () => {
               
               {/* Gradiente de sobreposição apenas para desktop */}
               <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-escuro to-transparent opacity-70"></div>
-              
-              {/* Sobreposição do dispositivo mock (efeito decorativo) */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-3/4 h-3/4 border-4 border-white/10 rounded-lg shadow-2xl"></div>
-              </div>
             </div>
             
             {/* Detalhes do projeto - layout ajustado para mobile */}
