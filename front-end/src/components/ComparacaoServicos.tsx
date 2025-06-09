@@ -13,8 +13,19 @@ const ComparacaoServicos = () => {
     { id: 3, nome: "Hospedagem Incluída" },
     { id: 4, nome: "Painel Administrativo" },
     { id: 5, nome: "SEO Básico" },
-    { id: 6, nome: "Integrações" },
-    { id: 8, nome: "Suporte Técnico" }
+    { id: 6, nome: "Integrações com APIs" },
+    { id: 7, nome: "Suporte Técnico" },
+    { id: 8, nome: "Blog" },
+    { id: 9, nome: "Galeria de imagens" },
+    { id: 10, nome: "Animações" },
+    { id: 11, nome: "Formulários personalizados" },
+    { id: 12, nome: "Login de usuários" },
+    { id: 13, nome: "Multilíngue" },
+    { id: 14, nome: "Dark Mode / Light Mode" },
+    { id: 15, nome: "Google Analytics" },
+    { id: 16, nome: "Whatsapp flutuante" },
+    { id: 17, nome: "Depoimentos" },
+    { id: 18, nome: "Timer de Urgência" }
   ];
 
   // Dados de comparação dos planos
@@ -24,13 +35,24 @@ const ComparacaoServicos = () => {
       nome: "Landing Page",
       preco: "R$ 650",
       recursos: {
-        1: true,  // Site Responsivo
-        2: true,  // Domínio Personalizado
-        3: true,  // Hospedagem Incluída
-        4: false, // Painel Administrativo
-        5: true,  // SEO Básico
-        6: false,  // Integrações
-        8: true   // Suporte Técnico
+        1: true,  
+        2: true,  
+        3: true,  
+        4: false, 
+        5: true,  
+        6: false,  
+        7: true,   
+        8: false,  
+        9: true,  
+        10: true,  
+        11: true,  
+        12: false, 
+        13: true,  
+        14: true, 
+        15: true, 
+        16: true,  
+        17: true,  
+        18: true   
       }
     },
     {
@@ -39,13 +61,24 @@ const ComparacaoServicos = () => {
       preco: "R$ 1.200",
       popular: true,
       recursos: {
-        1: true,  // Site Responsivo
-        2: true,  // Domínio Personalizado
-        3: true,  // Hospedagem Incluída
-        4: true,  // Painel Administrativo
-        5: true,  // SEO Básico
-        6: true,  // Integrações
-        8: true   // Suporte Técnico
+        1: true,  
+        2: true,  
+        3: true,  
+        4: true, 
+        5: true,  
+        6: false,  
+        7: true,   
+        8: true,  
+        9: true,  
+        10: true,  
+        11: true,  
+        12: false, 
+        13: true,  
+        14: true, 
+        15: true, 
+        16: true,  
+        17: true,  
+        18: true   
       }
     },
     {
@@ -53,13 +86,49 @@ const ComparacaoServicos = () => {
       nome: "E-commerce",
       preco: "R$ 2.000",
       recursos: {
-        1: true,  // Site Responsivo
-        2: true,  // Domínio Personalizado
-        3: true,  // Hospedagem Incluída
-        4: true,  // Painel Administrativo
-        5: true,  // SEO Básico
-        6: true,  // Integrações
-        8: true   // Suporte Técnico
+        1: true,  
+        2: true,  
+        3: true,  
+        4: true, 
+        5: true,  
+        6: true,  
+        7: true,   
+        8: false,  
+        9: true,  
+        10: true,  
+        11: true,  
+        12: true, 
+        13: true,  
+        14: true, 
+        15: true, 
+        16: true,  
+        17: true,  
+        18: true   
+      }
+    },
+        {
+      id: 4,
+      nome: "Sistema Web",
+      preco: "Parte de R$ 2.000",
+      recursos: {
+        1: true,  
+        2: true,  
+        3: true,  
+        4: true, 
+        5: true,  
+        6: true,  
+        7: true,   
+        8: true,  
+        9: true,  
+        10: true,  
+        11: true,  
+        12: true, 
+        13: true,  
+        14: true, 
+        15: true, 
+        16: true,  
+        17: true,  
+        18: true   
       }
     }
   ];

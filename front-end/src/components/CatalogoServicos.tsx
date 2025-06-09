@@ -129,8 +129,8 @@ const CatalogoServicos = () => {
       <div className="absolute bottom-40 left-0 w-96 h-96 bg-laranja/5 rounded-full blur-[120px]" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-3xl font-bold mb-4">Nossos Serviços</h2>
-        <p className="text-white/70 mb-10 max-w-3xl">
+        <h2 className="text-3xl font-bold mb-4 text-center">Nossos Serviços</h2>
+        <p className="text-white/70 mb-10 w-[75%] mx-auto text-center">
           Nossa equipe oferece soluções digitais completas para sua empresa, desde landing pages até sistemas complexos.
           Confira abaixo os detalhes de cada serviço e entre em contato para um orçamento personalizado.
         </p>
@@ -302,7 +302,7 @@ const CatalogoServicos = () => {
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
               <BotaoWhatsapp 
-                texto="Falar com um consultor" 
+                texto="Fale conosco" 
                 mensagem="Olá! Gostaria de conversar com um consultor sobre os serviços da Freeladev."
               />
               

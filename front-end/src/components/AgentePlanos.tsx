@@ -10,59 +10,69 @@ const AgentePlanos = () => {
   const planos = [
     {
       nome: "Básico",
-      preco: "499",
+      preco: "60",
       recorrencia: "por mês",
-      setup: "999",
+      setup: "1000",
       descricao: "Ideal para pequenas empresas que estão começando a automatizar o atendimento.",
       recursos: [
-        "Até 500 mensagens/dia",
         "Base de conhecimento personalizada",
         "Respostas automáticas",
         "Relatórios básicos",
-        "Suporte por e-mail",
-        "1 número de WhatsApp",
-        "Hospedagem inclusa"
+        "Hospedagem inclusa",
+        "Domínio incluso",
+        "Apenas texto e áudio",
+        "Congelar e descongelar o agente",
       ],
       emDestaque: false
     },
     {
       nome: "Profissional",
-      preco: "899",
+      preco: "70",
       recorrencia: "por mês",
-      setup: "1.499",
+      setup: "1.400",
       descricao: "Para empresas em crescimento que necessitam de recursos avançados de automação.",
       recursos: [
-        "Até 2.000 mensagens/dia",
         "Base de conhecimento avançada",
         "IA contextual aprimorada",
         "Integrações (API externa)",
-        "Relatórios detalhados",
         "Suporte prioritário",
-        "2 números de WhatsApp",
         "Multi-idiomas",
         "Transferência para atendente humano",
-        "Hospedagem premium"
+        "Hospedagem premium",
+        "Domínio personalizado",
+        "Mensagens de voz transcritas",
+        "Interpretar e responder a perguntas complexas",
+        "Analisar imagens",
+        "Usar docs e planilhas",
+        "Congelar e descongelar o agente",
       ],
       emDestaque: true
     },
     {
       nome: "Empresarial",
-      preco: "1.599",
+      preco: "80",
       recorrencia: "por mês",
-      setup: "2.499",
+      setup: "2.000",
       descricao: "Solução completa para empresas de médio e grande porte com alto volume de atendimentos.",
       recursos: [
-        "Mensagens ilimitadas",
         "Base de conhecimento ilimitada",
         "IA contextual avançada",
         "Múltiplas integrações",
         "Relatórios personalizados",
         "Suporte VIP 24/7",
-        "Até 5 números de WhatsApp",
         "Personalização completa da IA",
-        "Painel administrativo exclusivo",
         "Hospedagem premium dedicada",
-        "Treinamento da equipe"
+        "Treinamento da equipe",
+        "Domínio personalizado",
+        "Mensagens de voz transcritas",
+        "Interpretar e responder a perguntas complexas",
+        "Analisar imagens",
+        "Análise de sentimentos",
+        "Gerenciamento de tickets",
+        "Respostas automáticas avançadas",
+        "Executar ações automatizadas (ex: agendamentos, vendas)",
+        "Usar docs e planilhas",
+        "Congelar e descongelar o agente",
       ],
       emDestaque: false
     }
@@ -157,7 +167,6 @@ const AgentePlanos = () => {
                 <li>• O faturamento é mensal, podendo ser pago via boleto, PIX ou cartão de crédito.</li>
                 <li>• Planos personalizados estão disponíveis para necessidades específicas, entre em contato.</li>
                 <li>• É possível migrar entre planos a qualquer momento, com reajustes proporcionais.</li>
-                <li>• Contratos mínimos de 3 meses com renovação automática.</li>
               </ul>
             </div>
           </AnimacaoScroll>

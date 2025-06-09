@@ -18,7 +18,7 @@ const SistemaFAQ = () => {
     },
     {
       pergunta: "Quanto tempo leva para desenvolver um sistema web personalizado?",
-      resposta: "O tempo de desenvolvimento varia conforme a complexidade e escopo do projeto. Sistemas mais simples podem levar de 2 a 3 meses, enquanto projetos mais complexos podem exigir 6 meses ou mais. Durante a fase de análise de requisitos, fornecemos um cronograma detalhado com estimativas precisas para seu projeto específico, dividido em fases e entregas incrementais."
+      resposta: "O tempo de desenvolvimento varia conforme a complexidade e escopo do projeto. Sistemas mais simples podem levar de 1 a 2 meses, enquanto projetos mais complexos podem exigir 3 meses ou mais. Durante a fase de análise de requisitos, fornecemos um cronograma detalhado com estimativas precisas para seu projeto específico, dividido em fases e entregas incrementais."
     },
     {
       pergunta: "É possível integrar o sistema com outras plataformas e softwares que já utilizamos?",

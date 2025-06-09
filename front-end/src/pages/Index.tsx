@@ -76,7 +76,7 @@ const Index = () => {
         <Portfolio />
         <AvaliacoesClientes />
         <PromocaoCatalogo />
-        <PromocaoBriefing />
+        {/* <PromocaoBriefing /> */}
         <QuemSomos />
         <Contato />
       </main>

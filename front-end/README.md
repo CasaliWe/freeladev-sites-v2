@@ -1,0 +1,12 @@
+***FAZER:
+- Atualizar url webhook;
+- Colocar links do botão do projeto no catalogo de serviços;
+- Arrumar versão mob na tab comparação;
+- Botões de preço não mandam a mensagem correta pro wpp;
+- Navegação das páginas sistema-web, briefing, agente-ia não estao corretos;
+- Fazer agente para o wpp da freeladev;
+- Disparar mensagem pro wpp depois de responder o briefing;
+- Cadastrar no trello esse novo briefing;
+- Nossos serviços home não estão levando para o wpp com a mensagem certa;
+- Fazer resumo de informações para treinar o agente;
+- Fazer resumo do projeto para saber lidar com att futuras.

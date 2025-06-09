@@ -12,42 +12,42 @@ const SistemaEtapas = () => {
       icone: <ClipboardList className="w-6 h-6" />,
       titulo: "Análise de requisitos",
       descricao: "Entendemos profundamente as necessidades do seu negócio, processos atuais e objetivos para definir o escopo completo do sistema.",
-      prazo: "1-2 semanas"
+      prazo: "2-3 dias"
     },
     {
       numero: "2",
       icone: <Workflow className="w-6 h-6" />,
       titulo: "Planejamento e protótipos",
       descricao: "Desenvolvemos o planejamento técnico, arquitetura do sistema e protótipos de interface para validação.",
-      prazo: "2-3 semanas"
+      prazo: "2-3 dias"
     },
     {
       numero: "3",
       icone: <Database className="w-6 h-6" />,
       titulo: "Modelagem de dados",
       descricao: "Estruturamos o banco de dados de forma eficiente, garantindo a integridade e desempenho das informações.",
-      prazo: "1-2 semanas"
+      prazo: "2-5 dias"
     },
     {
       numero: "4",
       icone: <Code className="w-6 h-6" />,
       titulo: "Desenvolvimento",
       descricao: "Programação do sistema com entregas incrementais e reuniões periódicas para demonstração do progresso.",
-      prazo: "4-12 semanas"
+      prazo: "2 a 6 semanas"
     },
     {
       numero: "5",
       icone: <MonitorCheck className="w-6 h-6" />,
       titulo: "Testes e ajustes",
       descricao: "Realizamos testes extensivos para garantir o correto funcionamento, segurança e desempenho do sistema.",
-      prazo: "2-3 semanas"
+      prazo: "3-5 dias"
     },
     {
       numero: "6",
       icone: <Users className="w-6 h-6" />,
       titulo: "Implantação e treinamento",
       descricao: "Colocamos o sistema em produção, oferecemos treinamento abrangente e acompanhamos os primeiros dias de uso.",
-      prazo: "1-2 semanas"
+      prazo: "2-5 dias"
     },
     {
       numero: "7",
@@ -125,12 +125,12 @@ const SistemaEtapas = () => {
         <AnimacaoScroll atraso="delay-300">
           <div className="mt-16 max-w-2xl mx-auto text-center">
             <h3 className="text-2xl font-bold mb-4">
-              <span className="text-laranja">Prazo total:</span> 3 a 6 meses
+              <span className="text-laranja">Prazo total:</span> 1 a 3 meses (dependendo da complexidade)
             </h3>
             <p className="text-white/70">
               O tempo de desenvolvimento pode variar significativamente dependendo da complexidade 
-              e escopo do projeto. Sistemas mais simples podem levar cerca de 3 meses, 
-              enquanto soluções corporativas mais robustas podem exigir 6 meses ou mais. 
+              e escopo do projeto. Sistemas mais simples podem levar cerca de 1 mês, 
+              enquanto soluções corporativas mais robustas podem exigir 3 meses ou mais. 
               Durante toda a jornada, mantemos comunicação constante para garantir 
               alinhamento e total transparência no processo.
             </p>

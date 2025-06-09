@@ -20,6 +20,22 @@ const FAQ = () => {
       resposta: "O prazo médio para entrega de uma Landing Page é de 3 a 7 dias úteis, dependendo da complexidade do projeto e do volume de conteúdo a ser desenvolvido."
     },
     {
+      pergunta: "Qual o prazo de entrega para um website multi-página?",
+      resposta: "O prazo médio para entrega de um website multi-página é de 7 a 10 dias úteis, dependendo da complexidade do projeto e do volume de conteúdo a ser desenvolvido."
+    },
+    {
+      pergunta: "Qual o prazo de entrega para um ecommerce?",
+      resposta: "O prazo médio para entrega de um ecommerce é de 10 a 20 dias úteis, dependendo da complexidade do projeto e do volume de conteúdo a ser desenvolvido."
+    },
+    {
+      pergunta: "Qual o prazo de entrega para um agente de IA para whatsapp?",
+      resposta: "O prazo médio para entrega de um agente de IA para whatsapp é de 3 a 5 dias úteis, dependendo da complexidade do projeto e do volume de conteúdo a ser desenvolvido."
+    },
+    {
+      pergunta: "Qual o prazo de entrega para um sistema web personalizado?",
+      resposta: "Depois de analisarmos o projeto, informamos o prazo de entrega. Geralmente, projetos mais simples levam de 10 a 20 dias úteis, enquanto sistemas mais complexos podem levar meses."
+    },
+    {
       pergunta: "Como funciona a hospedagem mensal dos sites?",
       resposta: "A hospedagem mensal inclui servidor de alta performance, certificado SSL (https), backup diário, monitoramento de segurança e suporte técnico. A mensalidade é cobrada após a entrega do projeto."
     },
@@ -33,7 +49,7 @@ const FAQ = () => {
     },
     {
       pergunta: "Quais formas de pagamento são aceitas?",
-      resposta: "Aceitamos pagamentos via PIX e cartão de crédito (com opção de parcelamento em até 5x). Para projetos maiores, trabalhamos com 50% de entrada e 50% na entrega."
+      resposta: "Aceitamos pagamentos via PIX (5% de desconto) e cartão de crédito (com opção de parcelamento em até 5x). Para projetos maiores, trabalhamos com 50% de entrada e 50% na entrega."
     },
     {
       pergunta: "O que acontece se eu não gostar do resultado final?",

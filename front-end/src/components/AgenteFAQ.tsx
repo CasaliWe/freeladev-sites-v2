@@ -38,7 +38,7 @@ const AgenteFAQ = () => {
     },
     {
       pergunta: "Quanto tempo leva para implementar o Agente IA?",
-      resposta: "O tempo de implementação varia de acordo com a complexidade do projeto, mas geralmente leva entre 25 e 40 dias. Isso inclui o levantamento de requisitos, criação da base de conhecimento, configuração do agente, testes e ajustes, treinamento da equipe e implantação."
+      resposta: "O tempo de implementação varia de acordo com a complexidade do projeto, mas geralmente leva entre 5 e 10 dias. Isso inclui o levantamento de requisitos, criação da base de conhecimento, configuração do agente, testes e ajustes, treinamento da equipe e implantação."
     },
     {
       pergunta: "O Agente IA consegue entender mensagens de voz?",

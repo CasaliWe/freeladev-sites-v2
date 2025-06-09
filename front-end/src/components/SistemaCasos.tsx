@@ -9,6 +9,19 @@ const SistemaCasos = () => {
   // Casos de uso e exemplos
   const casos = [
     {
+      titulo: "Sistema para academias",
+      segmento: "Fitness e Bem-estar",
+      descricao: "Plataforma de gestão para academias e centros de fitness, com controle de alunos, agendamentos, pagamentos e relatórios de desempenho.",
+      funcionalidades: [
+        "Cadastro e gestão de alunos",
+        "Controle de frequência e check-ins",
+        "Agendamento de aulas e treinos",
+        "Relatórios de desempenho e retenção",
+        "Integração com sistemas de pagamento"
+      ],
+      imagem: "/placeholder.svg" // Placeholder, substituir por imagem real
+    },
+    {
       titulo: "Sistema de Gestão para Clínicas",
       segmento: "Área da saúde",
       descricao: "Sistema completo para gerenciamento de clínicas médicas e odontológicas, incluindo agendamentos, prontuários eletrônicos, controle financeiro e gestão de convênios.",

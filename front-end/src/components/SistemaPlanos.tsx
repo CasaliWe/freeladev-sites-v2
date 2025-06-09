@@ -10,15 +10,15 @@ const SistemaPlanos = () => {
   const planos = [
     {
       nome: "Básico",
-      preco: "A partir de R$ 6.000",
-      prazo: "45 a 60 dias",
+      preco: "A partir de R$ 2.000",
+      prazo: "10 a 30 dias",
       descricao: "Ideal para pequenas empresas que precisam de um sistema simples para automatizar processos básicos.",
       recursos: [
         "Até 5 funcionalidades principais",
         "Painel administrativo básico",
         "Sistema responsivo para desktop e mobile",
         "Controle de acesso de usuários",
-        "Hospedagem por 12 meses",
+        "Hospedagem grátis",
         "Suporte técnico por 3 meses",
         "Treinamento para uso do sistema"
       ],
@@ -26,8 +26,8 @@ const SistemaPlanos = () => {
     },
     {
       nome: "Intermediário",
-      preco: "A partir de R$ 12.000",
-      prazo: "60 a 90 dias",
+      preco: "A partir de R$ 4.000",
+      prazo: "30 a 60 dias",
       descricao: "Para empresas em crescimento que necessitam de um sistema mais completo com múltiplos módulos.",
       recursos: [
         "Até 12 funcionalidades personalizadas",
@@ -37,7 +37,7 @@ const SistemaPlanos = () => {
         "Controle de permissões avançado",
         "Integração com serviços externos",
         "API para outras plataformas",
-        "Hospedagem por 12 meses",
+        "Hospedagem grátis",
         "Suporte técnico por 6 meses",
         "Treinamento completo da equipe"
       ],
@@ -45,8 +45,8 @@ const SistemaPlanos = () => {
     },
     {
       nome: "Avançado",
-      preco: "A partir de R$ 25.000",
-      prazo: "90 a 120 dias",
+      preco: "A partir de R$ 6.000",
+      prazo: "60 a 90 dias",
       descricao: "Solução completa para empresas de médio e grande porte com necessidades complexas de gestão.",
       recursos: [
         "Funcionalidades personalizadas ilimitadas",
@@ -148,6 +148,7 @@ const SistemaPlanos = () => {
                 Informações importantes
               </h3>
               <ul className="space-y-2 text-white/70 text-sm">
+                <li>• Valor para hospedagem em nossos servidores parte de 50/mês.</li>
                 <li>• Os valores são estimativas iniciais e podem variar conforme os requisitos específicos do projeto.</li>
                 <li>• O prazo de desenvolvimento pode ser alterado dependendo da complexidade das funcionalidades.</li>
                 <li>• Todos os sistemas incluem período de testes e ajustes antes da entrega final.</li>

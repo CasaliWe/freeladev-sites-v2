@@ -112,8 +112,47 @@ const Briefing = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Aqui seria implementada a lógica de envio do formulário para o backend
-    console.log("Dados do formulário:", formData);
-    alert("Briefing enviado com sucesso! Entraremos em contato em breve.");
+    fetch('https://n8n.freeladevsites.com.br/webhook-test/enviar-briefing', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Erro ao enviar o formulário");
+      }
+      return response.json();
+    })
+    .then(data => {
+      alert("Briefing enviado com sucesso! Entraremos em contato em breve.");
+      // Limpa o formulário após o envio
+      setFormData({
+        nomeEmpresa: "",
+        segmento: "",
+        publico: "",
+        proposta: "",
+        diferenciais: "",
+        tipoSite: "",
+        objetivos: "",
+        prazo: "",
+        funcionalidades: [],
+        concorrentes: "",
+        referencias: "",
+        cores: "",
+        logotipo: undefined,
+        elemento: "",
+        temConteudo: "",
+        conteudoFornecido: [],
+        dominio: "",
+        hospedagem: "",
+        nome: "",
+        email: "",
+        telefone: "",
+        mensagem: ""
+      });
+    })
   };
   
   // Efeito para configurar o título da página e meta tags
@@ -300,9 +339,9 @@ const Briefing = () => {
                         <option value="">Selecione uma opção</option>
                         <option value="landing_page">Landing Page</option>
                         <option value="institucional">Site Institucional</option>
-                        <option value="blog">Blog</option>
                         <option value="ecommerce">E-commerce</option>
                         <option value="portfolio">Portfólio</option>
+                        <option value="agente">Agente IA para Whatsapp</option>
                         <option value="outro">Outro</option>
                       </select>
                     </div>
@@ -406,7 +445,7 @@ const Briefing = () => {
                       />
                     </div>
                     
-                    <div>
+                    <div className="hidden">
                       <label className="block text-white/80 mb-2">Logotipo (se já tiver)</label>
                       <input
                         type="file"
@@ -644,10 +683,10 @@ const Briefing = () => {
             
             <div className="mt-12 text-center">
               <AnimacaoScroll>
-                <p className="text-white/70 mb-4">
+                <p className="text-white/70 mb-6">
                   Prefere falar diretamente com nossa equipe? Entre em contato via WhatsApp!
                 </p>
-                <BotaoWhatsapp texto="Conversar no WhatsApp" />
+                <BotaoWhatsapp className="mx-auto" texto="Conversar no WhatsApp" />
               </AnimacaoScroll>
             </div>
           </div>

@@ -12,42 +12,35 @@ const AgenteEtapas = () => {
       icone: <ClipboardList className="w-6 h-6" />,
       titulo: "Levantamento de requisitos",
       descricao: "Reunião para entender as necessidades específicas da sua empresa e definir os objetivos do agente.",
-      prazo: "3-5 dias"
+      prazo: "1-2 dias"
     },
     {
       numero: "2",
       icone: <Database className="w-6 h-6" />,
       titulo: "Criação da base de conhecimento",
       descricao: "Estruturação das informações que o agente utilizará para responder às perguntas dos clientes.",
-      prazo: "5-10 dias"
+      prazo: "2-3 dias"
     },
     {
       numero: "3",
       icone: <Bot className="w-6 h-6" />,
       titulo: "Configuração e personalização",
       descricao: "Desenvolvimento e configuração do agente com base nos requisitos levantados.",
-      prazo: "10-15 dias"
+      prazo: "1-2 dias"
     },
     {
       numero: "4",
       icone: <Wrench className="w-6 h-6" />,
       titulo: "Testes e ajustes",
       descricao: "Fase de testes intensivos para garantir que o agente está respondendo corretamente às perguntas.",
-      prazo: "5-7 dias"
+      prazo: "1-2 dias"
     },
     {
       numero: "5",
       icone: <BookOpen className="w-6 h-6" />,
       titulo: "Treinamento e implantação",
       descricao: "Treinamento da sua equipe e colocação do agente em produção para começar a atender clientes.",
-      prazo: "2-3 dias"
-    },
-    {
-      numero: "6",
-      icone: <BarChart4 className="w-6 h-6" />,
-      titulo: "Monitoramento e evolução",
-      descricao: "Acompanhamento constante, análise de métricas e aprimoramento contínuo do agente.",
-      prazo: "Contínuo"
+      prazo: "1-2 dias"
     }
   ];
 
@@ -136,7 +129,7 @@ const AgenteEtapas = () => {
         <AnimacaoScroll atraso="delay-300">
           <div className="mt-20 max-w-2xl mx-auto text-center">
             <h3 className="text-2xl font-bold mb-4">
-              <span className="text-laranja">Prazo total:</span> 25 a 40 dias
+              <span className="text-laranja">Prazo total:</span> 5 a 10 dias
             </h3>
             <p className="text-white/70">
               O tempo de implementação pode variar de acordo com a complexidade do seu negócio, 
