@@ -93,7 +93,25 @@ const CatalogoServicos = () => {
       ],
       linkExterno: "https://exemplo-loja.com",
       textoLink: "Visitar loja modelo"
-    }
+    },
+        {
+      id: 5,
+      titulo: "Sistema Web Personalizado",
+      valorUnico: "R$ 2.000 a R$ 8.000",
+      mensalidade: "R$ 40 a R$ 100",
+      correcoes: "5 rodadas",
+      descricao: "Sistemas personalizados para seu negócio.",
+      icone: <Globe className="w-12 h-12" />,
+      detalhes: [
+        "Funcionalidades sob medida",
+        "Painel administrativo completo",
+        "Design responsivo e intuitivo",
+        "Integração com APIs externas",
+        "Hospedagem e suporte técnico incluídos"
+      ],
+      linkExterno: "https://exemplo.com/website-exemplo",
+      textoLink: "Ver exemplo"
+    },
   ];
 
   // Função para alternar exibição de detalhes expandidos
