@@ -4,6 +4,7 @@ import AnimacaoScroll from "./AnimacaoScroll";
 import BotaoWhatsapp from "./BotaoWhatsapp";
 import { ArrowRight, ArrowLeft, ExternalLink } from "lucide-react";
 import { useAppContext } from "@/contexts/AppContext";
+import { Link } from "react-router-dom";
 
 
 // Interface para os projetos do portfólio
@@ -126,14 +127,24 @@ const Portfolio = () => {
         
         {/* CTA para novos projetos */}
         <AnimacaoScroll>
-          <div className="mt-20 text-center">
-            <h3 className="text-2xl font-bold mb-4">
+          <div className="mt-20 text-center">            <h3 className="text-2xl font-bold mb-4">
               Quer o seu projeto no nosso portfólio?
             </h3>
-            <p className="text-white/70 mb-8 max-w-lg mx-auto">
+            <p className="text-white/70 mb-6 max-w-lg mx-auto">
               Entre em contato e vamos transformar sua ideia em realidade
             </p>
-            <BotaoWhatsapp texto="Iniciar meu projeto" className="mx-auto" />
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <BotaoWhatsapp texto="Iniciar meu projeto" />              <Link 
+                to="/catalogo" 
+                className="inline-flex items-center gap-2 text-laranja hover:text-white border border-laranja hover:bg-laranja/20 rounded-full px-6 py-3 transition-all duration-300"
+              >
+                Ver nossos serviços e preços
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+            <p className="text-white/50 text-sm mt-4">
+              Consulte nosso catálogo completo com todos os serviços e valores
+            </p>
           </div>
         </AnimacaoScroll>
       </div>

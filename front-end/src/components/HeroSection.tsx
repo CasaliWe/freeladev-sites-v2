@@ -2,6 +2,7 @@
 import { ArrowDown } from "lucide-react";
 import BotaoWhatsapp from "./BotaoWhatsapp";
 import AnimacaoScroll from "./AnimacaoScroll";
+import { Link } from "react-router-dom";
 
 /**
  * Componente da seção principal (hero) do site
@@ -48,8 +49,7 @@ const HeroSection = () => {
                 aplicativos móveis com design exclusivo e foco em conversão.
               </p>
             </AnimacaoScroll>
-            
-            <AnimacaoScroll atraso="delay-300">
+              <AnimacaoScroll atraso="delay-300">
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <BotaoWhatsapp texto="Solicitar orçamento" />
                 <button
@@ -60,6 +60,14 @@ const HeroSection = () => {
                   <span className="relative z-10">Ver serviços</span>
                   <ArrowDown className="w-4 h-4" />
                 </button>
+              </div>
+                <div className="mt-6 text-white/60 text-sm">
+                <Link to="/catalogo" className="inline-flex items-center gap-1 hover:text-laranja transition-colors">
+                  Confira nosso catálogo completo com preços e detalhes
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="m9 18 6-6-6-6"/>
+                  </svg>
+                </Link>
               </div>
             </AnimacaoScroll>
           </div>

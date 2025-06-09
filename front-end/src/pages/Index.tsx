@@ -6,6 +6,7 @@ import SliderServicos from "../components/SliderServicos";
 import Diferenciais from "../components/Diferenciais";
 import Portfolio from "../components/Portfolio";
 import AvaliacoesClientes from "../components/AvaliacoesClientes";
+import PromocaoCatalogo from "../components/PromocaoCatalogo";
 import QuemSomos from "../components/QuemSomos";
 import Contato from "../components/Contato";
 import Rodape from "../components/Rodape";
@@ -67,14 +68,14 @@ const Index = () => {
     <div className="bg-escuro text-white antialiased min-h-screen">
       {/* Cabeçalho/Navegação */}
       <Navegacao />
-      
-      {/* Seções principais */}
+        {/* Seções principais */}
       <main>
         <HeroSection />
         <SliderServicos />
         <Diferenciais />
         <Portfolio />
-        <AvaliacoesClientes /> 
+        <AvaliacoesClientes />
+        <PromocaoCatalogo />
         <QuemSomos />
         <Contato />
       </main>

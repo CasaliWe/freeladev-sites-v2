@@ -2,6 +2,7 @@
 import { Monitor, Code } from "lucide-react";
 import AnimacaoScroll from "./AnimacaoScroll";
 import { useAppContext } from "@/contexts/AppContext";
+import { Link } from "react-router-dom";
 
 
 
@@ -42,8 +43,7 @@ const Diferenciais = () => {
           </p>
         </AnimacaoScroll>
         
-        {/* Grade de diferenciais */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Grade de diferenciais */}        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {diferenciais.map((diferencial, idx) => (
             <AnimacaoScroll 
               key={idx} 
@@ -65,6 +65,26 @@ const Diferenciais = () => {
             </AnimacaoScroll>
           ))}
         </div>
+        
+        {/* Banner de promoção do catálogo */}
+        <AnimacaoScroll atraso="delay-400">
+          <div className="mt-20 text-center">
+            <div className="bg-secundaria border border-laranja/20 rounded-xl p-6 inline-block">
+              <p className="text-white font-medium mb-2">
+                Conheça todas as nossas soluções em detalhes
+              </p>
+              <Link 
+                to="/catalogo" 
+                className="text-laranja hover:text-white inline-flex items-center gap-2"
+              >
+                Acessar nosso catálogo de serviços
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="m9 18 6-6-6-6"/>
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </AnimacaoScroll>
       </div>
     </section>
   );

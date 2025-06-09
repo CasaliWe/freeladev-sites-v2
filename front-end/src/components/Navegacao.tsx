@@ -96,20 +96,29 @@ const Navegacao = () => {
       document.body.style.overflow = '';
     };
   }, [menuAberto]);
-    // Função para navegar para uma seção ou página e fechar o menu
+  // Função para navegar para uma seção ou página e fechar o menu
   const navegarParaSecao = (id: string, pagina?: string) => {
     setMenuAberto(false);
     
+    // Verifica se estamos na página de catálogo
+    const isCatalogoPage = window.location.pathname.includes('catalogo');
+    
+    // Se estamos na página de catálogo e o item NÃO é de catálogo
+    if (isCatalogoPage && id !== 'catalogo') {
+      // Redireciona para a página inicial + a âncora do elemento
+      window.location.href = `/#${id}`;
+      return;
+    }
+    
+    // Caso normal - Se tem uma página específica, navega para ela
     if (pagina) {
-      // Navega para outra página
       window.location.href = pagina;
       return;
     }
     
-    // Encontra o elemento com o ID especificado
+    // Se estamos na página correta, apenas rolamos até o elemento
     const elemento = document.getElementById(id);
     if (elemento) {
-      // Rola suavemente até o elemento
       elemento.scrollIntoView({ behavior: "smooth" });
     }
   };
@@ -126,14 +135,19 @@ const Navegacao = () => {
         ${navCompacta ? "py-2 efeito-vidro" : "py-4 bg-transparent"}
       `}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        {/* Logo */}
+      <div className="container mx-auto px-4 flex justify-between items-center">        {/* Logo */}
         <a 
           href="#inicio" 
           className="relative z-50"
           onClick={(e) => {
             e.preventDefault();
-            navegarParaSecao("inicio");
+            // Se estiver na página de catálogo, volta para a home
+            if (window.location.pathname.includes('catalogo')) {
+              window.location.href = '/';
+            } else {
+              // Se já estiver na página inicial, apenas rola para o topo
+              navegarParaSecao("inicio");
+            }
           }}
         >
           <h1 className="text-2xl md:text-3xl font-bold">

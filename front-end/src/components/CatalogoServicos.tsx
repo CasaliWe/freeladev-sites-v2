@@ -13,6 +13,8 @@ interface ServicoInfo {
   descricao: string;
   icone: React.ReactNode;
   detalhes: string[];
+  linkExterno?: string;  // Link opcional para site relacionado
+  textoLink?: string;    // Texto para o botão do link externo
 }
 
 /**
@@ -21,7 +23,6 @@ interface ServicoInfo {
 const CatalogoServicos = () => {
   // Estado para controle de serviço com detalhes expandidos
   const [detalhesExpandidosId, setDetalhesExpandidosId] = useState<number | null>(null);
-
   // Lista de serviços do catálogo
   const servicos: ServicoInfo[] = [
     {
@@ -37,7 +38,9 @@ const CatalogoServicos = () => {
         "Formulário de contato",
         "Integração com WhatsApp",
         "Otimização básica"
-      ]
+      ],
+      linkExterno: "https://exemplo.com/landing-page-demo",
+      textoLink: "Ver demonstração"
     },
     {
       id: 2,
@@ -53,7 +56,9 @@ const CatalogoServicos = () => {
         "Google Analytics",
         "Responsividade",
         "Painel admin para atualizar todas as informações"
-      ]
+      ],
+      linkExterno: "https://exemplo.com/website-exemplo",
+      textoLink: "Ver exemplo"
     },
     {
       id: 3,
@@ -68,7 +73,9 @@ const CatalogoServicos = () => {
         "Base de conhecimento treinada",
         "Uso de API do ChatGPT",
         "Respostas inteligentes 24h"
-      ]
+      ],
+      linkExterno: "https://youtube.com/watch?v=exemplo-ia-bot",
+      textoLink: "Ver demonstração em vídeo"
     },
     {
       id: 4,
@@ -83,7 +90,9 @@ const CatalogoServicos = () => {
         "Responsivo",
         "Painel admin para adicionar produtos e informações",
         "Integração com Asaas para receber os pagamentos"
-      ]
+      ],
+      linkExterno: "https://exemplo-loja.com",
+      textoLink: "Visitar loja modelo"
     }
   ];
 
@@ -169,14 +178,44 @@ const CatalogoServicos = () => {
                     ))}
                   </ul>
                 </div>
-                
-                {/* Botão para solicitar orçamento */}
-                <div className="mt-auto">
+                  {/* Botões de ação */}
+                <div className="mt-auto space-y-3">
+                  {/* Botão WhatsApp */}
                   <BotaoWhatsapp 
                     texto={`${servico.titulo}`} 
                     className="w-full justify-center"
                     mensagem={`Olá, gostaria de saber mais sobre o serviço de ${servico.titulo} oferecido pela Freeladev.`}
                   />
+                    {/* Botão de Link Externo */}
+                  {servico.linkExterno && (
+                    <a 
+                      href={servico.linkExterno}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group w-full flex justify-center items-center gap-2 py-2 px-4 bg-secundaria text-white border border-white/10 rounded-full transition-all duration-300 hover:border-laranja/30 hover:bg-secundaria/80 relative overflow-hidden"
+                    >
+                      <span className="absolute inset-0 bg-gradient-to-r from-laranja/10 to-laranja/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                      <span className="relative z-10 flex items-center gap-2">
+                        <svg 
+                          xmlns="http://www.w3.org/2000/svg" 
+                          width="18" 
+                          height="18" 
+                          viewBox="0 0 24 24" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          strokeWidth="2" 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round"
+                          className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+                        >
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                          <polyline points="15 3 21 3 21 9"></polyline>
+                          <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                        {servico.textoLink || "Visitar site"}
+                      </span>
+                    </a>
+                  )}
                 </div>
               </div>
             </AnimacaoScroll>

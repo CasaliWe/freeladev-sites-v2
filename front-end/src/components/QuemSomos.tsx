@@ -1,6 +1,7 @@
 
 import AnimacaoScroll from "./AnimacaoScroll";
 import { Target, Eye, Sparkles, Heart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 /**
  * Componente da seção "Quem Somos" com informações sobre a empresa
@@ -49,11 +50,15 @@ const QuemSomos = () => {
               </p>
             </AnimacaoScroll>
             
-            <AnimacaoScroll atraso="delay-300">
-              <p className="text-white/80 mb-10">
+            <AnimacaoScroll atraso="delay-300">              <p className="text-white/80 mb-6">
                 Mais que desenvolvedores, somos parceiros do seu negócio. Entendemos 
                 que cada projeto é único e merece uma solução personalizada que atenda 
                 às necessidades específicas de cada cliente.
+              </p>
+              
+              <p className="text-white/80 mb-10">
+                Oferecemos uma variedade de <Link to="/catalogo" className="text-laranja hover:underline">serviços especializados</Link> com 
+                preços transparentes e soluções escaláveis para diferentes necessidades e orçamentos.
               </p>
             </AnimacaoScroll>
             
