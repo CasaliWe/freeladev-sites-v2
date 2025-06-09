@@ -4,6 +4,13 @@ import { Menu, X, Facebook, Instagram } from "lucide-react";
 import BotaoWhatsapp from "./BotaoWhatsapp";
 import { useAppContext } from "@/contexts/AppContext";
 
+// Interface para os itens do menu
+interface ItemMenu {
+  nome: string;
+  id: string;
+  pagina?: string;
+  destaque?: boolean;
+}
 
 /**
  * Componente de navegação principal (header)
@@ -16,18 +23,18 @@ const Navegacao = () => {
   
   // Estado para controlar a aparência da navegação ao rolar
   const [navCompacta, setNavCompacta] = useState(false);
-
   // Referência para o componente de menu
   const menuRef = useRef<HTMLDivElement>(null);
-    // Lista de itens do menu
-  const itensMenu = [
-    { nome: "Início", id: "inicio" },
-    { nome: "Serviços", id: "servicos" },
-    { nome: "Diferenciais", id: "diferenciais" },
-    { nome: "Portfólio", id: "portfolio" },
-    { nome: "Quem Somos", id: "quemSomos" },
-    { nome: "Contato", id: "contato" },
-    { nome: "Catálogo", id: "catalogo", pagina: "catalogo" },
+  
+  // Lista de itens do menu
+  const itensMenu: ItemMenu[] = [
+    { nome: "Início", id: "inicio", destaque: false },
+    { nome: "Serviços", id: "servicos", destaque: false },
+    { nome: "Diferenciais", id: "diferenciais", destaque: false },
+    { nome: "Portfólio", id: "portfolio", destaque: false },
+    { nome: "Quem Somos", id: "quemSomos", destaque: false },
+    { nome: "Contato", id: "contato", destaque: false },
+    { nome: "Catálogo", id: "catalogo", pagina: "catalogo", destaque: false },
   ];
 
   // Lista de redes sociais
@@ -94,17 +101,20 @@ const Navegacao = () => {
       document.body.style.top = '';
       document.body.style.width = '';
       document.body.style.overflow = '';
-    };
-  }, [menuAberto]);
+    };  }, [menuAberto]);
+  
   // Função para navegar para uma seção ou página e fechar o menu
   const navegarParaSecao = (id: string, pagina?: string) => {
     setMenuAberto(false);
     
-    // Verifica se estamos na página de catálogo
-    const isCatalogoPage = window.location.pathname.includes('catalogo');
+    // Verifica em qual página estamos atualmente
+    const currentPath = window.location.pathname;
+    const isCatalogoPage = currentPath.includes('catalogo');
+    const isBriefingPage = currentPath.includes('briefing');
+    const isSpecialPage = isCatalogoPage || isBriefingPage;
     
-    // Se estamos na página de catálogo e o item NÃO é de catálogo
-    if (isCatalogoPage && id !== 'catalogo') {
+    // Se estamos em página especial (catálogo ou briefing) e o item não é dessa página
+    if (isSpecialPage && id !== 'catalogo' && id !== 'briefing') {
       // Redireciona para a página inicial + a âncora do elemento
       window.location.href = `/#${id}`;
       return;
@@ -112,7 +122,7 @@ const Navegacao = () => {
     
     // Caso normal - Se tem uma página específica, navega para ela
     if (pagina) {
-      window.location.href = pagina;
+      window.location.href = `/${pagina}`;
       return;
     }
     
@@ -154,8 +164,7 @@ const Navegacao = () => {
             <span className="text-laranja">Freela</span>
             <span className="text-white">dev</span>
           </h1>
-        </a>
-          {/* Menu de navegação para desktop */}
+        </a>          {/* Menu de navegação para desktop */}
         <nav className="hidden md:flex items-center gap-6">
           {itensMenu.map((item) => (
             <a
@@ -165,7 +174,10 @@ const Navegacao = () => {
                 e.preventDefault();
                 navegarParaSecao(item.id, item.pagina);
               }}
-              className="text-white/90 hover:text-laranja transition-colors"
+              className={item.destaque 
+                ? "text-escuro bg-laranja hover:bg-laranja/80 px-4 py-2 rounded-lg font-medium transition-colors" 
+                : "text-white/90 hover:text-laranja transition-colors"
+              }
             >
               {item.nome}
             </a>
@@ -208,7 +220,10 @@ const Navegacao = () => {
                   e.preventDefault();
                   navegarParaSecao(item.id, item.pagina);
                 }}
-                className="text-xl text-white/90 hover:text-laranja transition-colors"
+                className={item.destaque 
+                  ? "text-escuro bg-laranja hover:bg-laranja/80 px-6 py-2 rounded-lg font-medium text-xl transition-colors" 
+                  : "text-xl text-white/90 hover:text-laranja transition-colors"
+                }
               >
                 {item.nome}
               </a>

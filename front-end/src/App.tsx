@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Catalogo from "./pages/Catalogo";
 import AgenteIA from "./pages/AgenteIA";
 import SistemaWeb from "./pages/SistemaWeb";
+import Briefing from "./pages/Briefing";
 import NotFound from "./pages/NotFound";
 import { AppContextProvider } from "./contexts/AppContext";
 
@@ -17,12 +18,12 @@ const App = () => (
     <AppContextProvider>
       <TooltipProvider>
         <Toaster />
-        <Sonner />
-        <BrowserRouter>          <Routes>
+        <Sonner />        <BrowserRouter>          <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/catalogo" element={<Catalogo />} />
             <Route path="/agente-ia" element={<AgenteIA />} />
             <Route path="/sistema-web" element={<SistemaWeb />} />
+            <Route path="/briefing" element={<Briefing />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

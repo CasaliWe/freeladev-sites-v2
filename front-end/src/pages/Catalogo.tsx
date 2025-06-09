@@ -86,14 +86,46 @@ const Catalogo = () => {
               <BotaoWhatsapp texto="Solicitar orçamento personalizado" />
             </div>
           </div>
-        </section>
-        {/* Componente de catálogo */}
+        </section>        {/* Componente de catálogo */}
         <CatalogoServicos />
         {/* Componente de comparação */}
         <ComparacaoServicos />
         
         {/* Componente de Perguntas Frequentes */}
         <FAQ />
+        
+        {/* CTA para o Briefing */}
+        <section className="py-16 relative overflow-hidden">
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="bg-secundaria border border-white/10 rounded-2xl p-8 md:p-12">
+              <div className="max-w-3xl mx-auto text-center">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                  Pronto para <span className="text-laranja">iniciar</span> seu projeto?
+                </h2>
+                <p className="text-white/70 mb-8">
+                  Preencha nosso formulário de briefing para que possamos entender melhor suas necessidades 
+                  e desenvolver uma proposta personalizada para o seu projeto.
+                </p>
+                <div className="flex flex-wrap gap-4 justify-center">
+                  <a 
+                    href="/briefing"
+                    className="bg-laranja hover:bg-laranja/80 text-escuro font-medium py-3 px-6 rounded-lg inline-flex items-center gap-2 transition-colors"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                      <polyline points="14 2 14 8 20 8"/>
+                      <line x1="16" y1="13" x2="8" y2="13"/>
+                      <line x1="16" y1="17" x2="8" y2="17"/>
+                      <line x1="10" y1="9" x2="8" y2="9"/>
+                    </svg>
+                    Preencher Briefing
+                  </a>
+                  <BotaoWhatsapp texto="Falar com um consultor" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       
       {/* Rodapé */}
