@@ -50,12 +50,23 @@ const SliderServicos = () => {
             Nossos <span className="text-laranja">Serviços</span>
           </h2>
         </AnimacaoScroll>
-        
-        <AnimacaoScroll atraso="delay-100">
-          <p className="text-white/70 text-center max-w-2xl mx-auto mb-16">
+          <AnimacaoScroll atraso="delay-100">
+          <p className="text-white/70 text-center max-w-2xl mx-auto mb-8">
             Soluções digitais completas para impulsionar o seu negócio
             com tecnologias modernas e design de alta qualidade
           </p>
+          
+          <div className="flex justify-center mb-16">
+            <a 
+              href="/catalogo" 
+              className="inline-flex items-center gap-2 text-laranja hover:text-white border border-laranja hover:bg-laranja rounded-full px-6 py-2 transition-all duration-300"
+            >
+              Ver catálogo completo de serviços
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="m9 18 6-6-6-6"/>
+              </svg>
+            </a>
+          </div>
         </AnimacaoScroll>
         
         {/* Slider de serviços */}

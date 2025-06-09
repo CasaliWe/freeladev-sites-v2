@@ -7,6 +7,7 @@ interface BotaoWhatsappProps {
   texto?: string;
   className?: string;
   flutuante?: boolean;
+  mensagem?: string;
 }
 
 /**
@@ -16,18 +17,23 @@ interface BotaoWhatsappProps {
 const BotaoWhatsapp = ({ 
   texto = "Fale conosco", 
   className = "", 
-  flutuante = false 
+  flutuante = false,
+  mensagem = "Olá, gostaria de saber mais sobre os serviços da Freeladev."
 }: BotaoWhatsappProps) => {
 
   const { dados, atualizarDados } = useAppContext();
   
-  // URL de redirecionamento para o WhatsApp
-  const whatsappUrl = dados.wpp_float;
+  // Número de WhatsApp da base
+  const whatsappBase = dados.wpp_float?.replace("https://wa.me/", "") || "";
   
   // Evento de clique no botão
   const abrirWhatsapp = () => {
     // Registra evento de analytics (implementação futura)
     console.log("Clique no botão de WhatsApp");
+    
+    // Cria URL com a mensagem personalizada
+    const mensagemEncoded = encodeURIComponent(mensagem);
+    const whatsappUrl = `https://wa.me/${whatsappBase}?text=${mensagemEncoded}`;
     
     // Abre o WhatsApp em uma nova aba
     window.open(whatsappUrl, "_blank");

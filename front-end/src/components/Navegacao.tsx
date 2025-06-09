@@ -19,8 +19,7 @@ const Navegacao = () => {
 
   // Referência para o componente de menu
   const menuRef = useRef<HTMLDivElement>(null);
-  
-  // Lista de itens do menu
+    // Lista de itens do menu
   const itensMenu = [
     { nome: "Início", id: "inicio" },
     { nome: "Serviços", id: "servicos" },
@@ -28,6 +27,7 @@ const Navegacao = () => {
     { nome: "Portfólio", id: "portfolio" },
     { nome: "Quem Somos", id: "quemSomos" },
     { nome: "Contato", id: "contato" },
+    { nome: "Catálogo", id: "catalogo", pagina: "catalogo" },
   ];
 
   // Lista de redes sociais
@@ -96,10 +96,15 @@ const Navegacao = () => {
       document.body.style.overflow = '';
     };
   }, [menuAberto]);
-  
-  // Função para navegar para uma seção e fechar o menu
-  const navegarParaSecao = (id: string) => {
+    // Função para navegar para uma seção ou página e fechar o menu
+  const navegarParaSecao = (id: string, pagina?: string) => {
     setMenuAberto(false);
+    
+    if (pagina) {
+      // Navega para outra página
+      window.location.href = pagina;
+      return;
+    }
     
     // Encontra o elemento com o ID especificado
     const elemento = document.getElementById(id);
@@ -136,16 +141,15 @@ const Navegacao = () => {
             <span className="text-white">dev</span>
           </h1>
         </a>
-        
-        {/* Menu de navegação para desktop */}
+          {/* Menu de navegação para desktop */}
         <nav className="hidden md:flex items-center gap-6">
           {itensMenu.map((item) => (
             <a
               key={item.id}
-              href={`#${item.id}`}
+              href={item.pagina ? item.pagina : `#${item.id}`}
               onClick={(e) => {
                 e.preventDefault();
-                navegarParaSecao(item.id);
+                navegarParaSecao(item.id, item.pagina);
               }}
               className="text-white/90 hover:text-laranja transition-colors"
             >
@@ -181,15 +185,14 @@ const Navegacao = () => {
             zIndex: 40,
             backgroundColor: 'rgba(10, 10, 15, 0.97)', // Fundo escuro ligeiramente transparente
           }}
-        >
-          <nav className="flex flex-col items-center gap-6">
+        >          <nav className="flex flex-col items-center gap-6">
             {itensMenu.map((item) => (
               <a
                 key={item.id}
-                href={`#${item.id}`}
+                href={item.pagina ? item.pagina : `#${item.id}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  navegarParaSecao(item.id);
+                  navegarParaSecao(item.id, item.pagina);
                 }}
                 className="text-xl text-white/90 hover:text-laranja transition-colors"
               >

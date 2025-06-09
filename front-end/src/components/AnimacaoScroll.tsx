@@ -5,7 +5,7 @@ import { useEffect, useRef, ReactNode } from "react";
 interface AnimacaoScrollProps {
   children: ReactNode;
   className?: string; 
-  atraso?: "delay-100" | "delay-200" | "delay-300" | "delay-400" | ""; // Atrasos pré-definidos
+  atraso?: string; // Atrasos como "delay-100", "delay-200", etc.
 }
 
 /**
