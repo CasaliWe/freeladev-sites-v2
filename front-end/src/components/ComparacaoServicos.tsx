@@ -147,19 +147,18 @@ const ComparacaoServicos = () => {
         </AnimacaoScroll>
 
         {/* View para Mobile: Cartões com Tabs */}
-        <div className="md:hidden">
-          {/* Seletor de planos para mobile */}
+        <div className="md:hidden">          {/* Seletor de planos para mobile */}
           <div className="flex justify-center mb-6">
-            <div className="bg-secundaria rounded-xl p-2 inline-flex overflow-x-auto w-full max-w-sm justify-center">
+            <div className="bg-secundaria rounded-xl p-2 flex flex-col w-full max-w-sm">
               {planos.map(plano => (
                 <button
                   key={plano.id}
                   onClick={() => setPlanoAtivo(plano.id)}
                   className={`
-                    py-2 px-4 rounded-lg transition-colors whitespace-nowrap text-sm
+                    py-3 px-4 rounded-lg transition-colors mb-1 last:mb-0
                     ${planoAtivo === plano.id 
                       ? "bg-laranja text-white" 
-                      : "text-white/70 hover:text-white"
+                      : "text-white/70 hover:text-white hover:bg-escuro/30"
                     }
                   `}
                 >

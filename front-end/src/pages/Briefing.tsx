@@ -71,14 +71,40 @@ const Briefing = () => {
     "Paleta de Cores",
     "Manual de Marca"
   ];
-  
   // Manipulação de mudança de campos
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    
+    // Aplicar máscara se for o campo de telefone
+    if (name === "telefone") {
+      // Remove todos os caracteres não numéricos
+      const numbersOnly = value.replace(/\D/g, '');
+      
+      // Aplica a máscara de telefone (54) 9153-8488 (sem o 9 extra)
+      let maskedValue = "";
+      if (numbersOnly.length <= 2) {
+        maskedValue = numbersOnly.length ? `(${numbersOnly}` : "";
+      } else if (numbersOnly.length <= 6) {
+        maskedValue = `(${numbersOnly.slice(0, 2)}) ${numbersOnly.slice(2)}`;
+      } else if (numbersOnly.length <= 10) {
+        maskedValue = `(${numbersOnly.slice(0, 2)}) ${numbersOnly.slice(2, 6)}-${numbersOnly.slice(6)}`;
+      }
+      
+      // Limita a entrada para o formato (54) 9153-8488
+      if (numbersOnly.length > 10) {
+        return;
+      }
+      
+      setFormData(prev => ({
+        ...prev,
+        [name]: maskedValue
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
   };
   
   // Manipulação de checkboxes (funcionalidades e conteúdo)
@@ -107,17 +133,32 @@ const Briefing = () => {
       }));
     }
   };
-  
+  // Função para formatar o telefone para envio ao backend (removendo apenas os caracteres especiais)
+  const formatPhoneForBackend = (phone: string): string => {
+    // Remove todos os caracteres não numéricos, mantendo apenas os números
+    const numbersOnly = phone.replace(/\D/g, '');
+    
+    // Retorna todos os números (incluindo o 9), apenas removendo caracteres de formatação
+    return numbersOnly;
+  };
+
   // Envio do formulário
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Aqui seria implementada a lógica de envio do formulário para o backend
-    fetch('https://n8n.freeladevsites.com.br/webhook-test/enviar-briefing', {
+    
+    // Cria uma cópia do formData para fazer as modificações necessárias
+    const formDataToSend = {
+      ...formData,
+      telefone: formatPhoneForBackend(formData.telefone)
+    };
+    
+    // Envia o formulário com o telefone formatado
+    fetch('https://n8n.freeladevsites.com.br/webhook/enviar-briefing', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(formData)
+      body: JSON.stringify(formDataToSend)
     })
     .then(response => {
       if (!response.ok) {
@@ -575,8 +616,7 @@ const Briefing = () => {
                         className="w-full bg-escuro border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-laranja focus:ring-1 focus:ring-laranja"
                       />
                     </div>
-                    
-                    <div>
+                      <div>
                       <label className="block text-white/80 mb-2">Telefone (WhatsApp)*</label>
                       <input
                         type="tel"
@@ -585,7 +625,7 @@ const Briefing = () => {
                         onChange={handleChange}
                         required
                         className="w-full bg-escuro border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-laranja focus:ring-1 focus:ring-laranja"
-                        placeholder="(DDD) 00000-0000"
+                        placeholder="(54) 9153-8488"
                       />
                     </div>
                     
