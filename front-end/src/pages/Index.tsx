@@ -16,8 +16,7 @@ import BotaoWhatsapp from "../components/BotaoWhatsapp";
 /**
  * Página principal do site
  */
-const Index = () => {
-  // Efeito para configurar o título da página e meta tags
+const Index = () => {  // Efeito para configurar o título da página e meta tags
   useEffect(() => {
     // Atualiza o título da página
     document.title = "Freeladev | Desenvolvimento de Websites e Aplicativos - Passo Fundo/RS";
@@ -62,6 +61,44 @@ const Index = () => {
       if (document.head.contains(metaKeywords)) {
         document.head.removeChild(metaKeywords);
       }
+    };  }, []);
+
+  // Efeito para lidar com a navegação por âncoras quando a página carrega
+  useEffect(() => {
+    // Função para tratar a rolagem até o elemento da âncora
+    const handleHashNavigation = () => {
+      // Obtém o hash da URL (sem o caractere #)
+      const hash = window.location.hash.substring(1);
+      
+      if (hash) {
+        // Pequeno atraso para garantir que a página esteja totalmente carregada
+        setTimeout(() => {
+          const elemento = document.getElementById(hash);
+          if (elemento) {
+            // Considerando o header fixo, ajustamos a rolagem com uma pequena compensação
+            const headerHeight = 80; // Altura aproximada do header
+            const elementoPosition = elemento.getBoundingClientRect().top;
+            const offsetPosition = elementoPosition + window.pageYOffset - headerHeight;
+            
+            // Rola suavemente até o elemento
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }, 100); // 100ms de delay para garantir que tudo foi renderizado
+      }
+    };
+    
+    // Executa a função ao montar o componente
+    handleHashNavigation();
+    
+    // Também adiciona um listener para mudanças no hash (caso necessário)
+    window.addEventListener('hashchange', handleHashNavigation);
+    
+    // Limpeza do listener ao desmontar
+    return () => {
+      window.removeEventListener('hashchange', handleHashNavigation);
     };
   }, []);
   
