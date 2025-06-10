@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Catalogo from "./pages/Catalogo";
 import AgenteIA from "./pages/AgenteIA";
 import SistemaWeb from "./pages/SistemaWeb";
+import Ecommerce from "./pages/Ecommerce";
 import Briefing from "./pages/Briefing";
 import NotFound from "./pages/NotFound";
 import { AppContextProvider } from "./contexts/AppContext";
@@ -23,6 +24,7 @@ const App = () => (
             <Route path="/catalogo" element={<Catalogo />} />
             <Route path="/agente-ia" element={<AgenteIA />} />
             <Route path="/sistema-web" element={<SistemaWeb />} />
+            <Route path="/ecommerce" element={<Ecommerce />} />
             <Route path="/briefing" element={<Briefing />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

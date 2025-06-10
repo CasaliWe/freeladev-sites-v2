@@ -28,8 +28,8 @@ const CatalogoServicos = () => {
     {
       id: 1,
       titulo: "Landing Page",
-      valorUnico: "R$ 800",
-      mensalidade: "R$ 35",
+      valorUnico: "R$ 650",
+      mensalidade: "R$ 30",
       correcoes: "2 rodada",
       descricao: "Página única com foco em conversão.",
       icone: <Info className="w-12 h-12" />,
@@ -45,7 +45,7 @@ const CatalogoServicos = () => {
     {
       id: 2,
       titulo: "Website Multi-página",
-      valorUnico: "R$ 1.500",
+      valorUnico: "R$ 1.300",
       mensalidade: "R$ 40",
       correcoes: "3 rodadas",
       descricao: "Site institucional com 3 a 5 páginas.",
@@ -63,8 +63,8 @@ const CatalogoServicos = () => {
     {
       id: 3,
       titulo: "Agente de IA para WhatsApp",
-      valorUnico: "A partir de R$ 1.200",
-      mensalidade: "R$ 65",
+      valorUnico: "A partir de R$ 1.000",
+      mensalidade: "R$ 60",
       correcoes: "3 rodada de ajustes no fluxo",
       descricao: "Chatbot com IA para atendimento, vendas ou agendamentos.",
       icone: <Bot className="w-12 h-12" />,
@@ -81,7 +81,7 @@ const CatalogoServicos = () => {
       id: 4,
       titulo: "E-commerce",
       valorUnico: "R$ 2.200",
-      mensalidade: "R$ 50",
+      mensalidade: "R$ 60",
       correcoes: "3 rodadas",
       descricao: "Loja online com exibição de produtos e pedido via WhatsApp ou link de pagamento.",
       icone: <ShoppingCart className="w-12 h-12" />,
@@ -92,7 +92,7 @@ const CatalogoServicos = () => {
         "Integração com Asaas para receber os pagamentos"
       ],
       linkExterno: "https://freeladevsites.com.br/ecommerce",
-      textoLink: "Visitar loja modelo"
+      textoLink: "Detalhes"
     },
         {
       id: 5,

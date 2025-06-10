@@ -58,7 +58,7 @@ const ComparacaoServicos = () => {
     {
       id: 2, 
       nome: "Website Multi-página",
-      preco: "R$ 1.200",
+      preco: "R$ 1.300",
       popular: true,
       recursos: {
         1: true,  
@@ -84,7 +84,7 @@ const ComparacaoServicos = () => {
     {
       id: 3,
       nome: "E-commerce",
-      preco: "R$ 2.000",
+      preco: "R$ 2.200",
       recursos: {
         1: true,  
         2: true,  
@@ -109,7 +109,7 @@ const ComparacaoServicos = () => {
         {
       id: 4,
       nome: "Sistema Web",
-      preco: "Parte de R$ 2.000",
+      preco: "Parte de R$ 3.000",
       recursos: {
         1: true,  
         2: true,  

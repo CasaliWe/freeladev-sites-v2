@@ -29,7 +29,7 @@ const AgentePlanos = () => {
       nome: "Profissional",
       preco: "70",
       recorrencia: "por mês",
-      setup: "1.400",
+      setup: "1.500",
       descricao: "Para empresas em crescimento que necessitam de recursos avançados de automação.",
       recursos: [
         "Base de conhecimento avançada",
