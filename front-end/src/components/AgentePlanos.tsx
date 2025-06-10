@@ -145,6 +145,7 @@ const AgentePlanos = () => {
                 <div className="p-6 md:p-8 pt-0">
                   <BotaoWhatsapp 
                     texto={`Contratar plano ${plano.nome}`} 
+                    mensagem={`Olá, gostaria de contratar o plano ${plano.nome} do Agente IA.`}
                     className={plano.emDestaque ? "" : "bg-transparent border border-laranja hover:bg-laranja text-laranja hover:text-escuro"}
                   />
                 </div>

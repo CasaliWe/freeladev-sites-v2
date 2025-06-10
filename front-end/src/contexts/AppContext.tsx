@@ -44,7 +44,7 @@ export function AppContextProvider({ children }) {
   const [servicos, setServicos] = useState([
     {
       id: 1,
-      titulo: "Sites & Landing Pages",
+      titulo: "Websites & Landing Pages",
       descricao: "Criação de websites profissionais e landing pages otimizadas para conversão",
       icone: <Monitor className="w-12 h-12" />,
       detalhes: [
@@ -52,22 +52,12 @@ export function AppContextProvider({ children }) {
         "Estrutura pensada para conversão",
         "Otimização para dispositivos móveis",
         "Hospedagem e suporte inclusos"
-      ]
+      ],
+      mensagem: "Olá, gostaria de saber mais sobre seus serviços de Websites e Landing Pages",
+      texto_botao: "Saber mais"
     },
     {
       id: 2,
-      titulo: "Aplicativos Mobile",
-      descricao: "Desenvolvimento de aplicativos híbridos para iOS e Android",
-      icone: <Smartphone className="w-12 h-12" />,
-      detalhes: [
-        "Experiência de usuário intuitiva",
-        "Design responsivo e moderno",
-        "Funcionalidades personalizadas",
-        "Publicação nas lojas de aplicativos"
-      ]
-    },
-    {
-      id: 3,
       titulo: "E-commerce",
       descricao: "Criação de lojas virtuais completas e otimizadas para vendas online",
       icone: <Code className="w-12 h-12" />,
@@ -76,10 +66,12 @@ export function AppContextProvider({ children }) {
         "Gerenciamento de produtos e estoque",
         "Design responsivo e otimizado",
         "Suporte técnico e manutenção"
-      ]
+      ],
+      mensagem: "Olá, gostaria de saber mais sobre seus serviços de E-commerce",
+      texto_botao: "Conheça mais"
     },
     {
-      id: 4,
+      id: 3,
       titulo: "Agentes IA para WhatsApp",
       descricao: "Automação inteligente para atendimento e suporte no WhatsApp",
       icone: <Search className="w-12 h-12" />,
@@ -88,7 +80,9 @@ export function AppContextProvider({ children }) {
         "Integração com sistemas internos",
         "Análise de conversas e métricas",
         "Atendimento 24/7 automatizado"
-      ]
+      ],
+      mensagem: "Olá, gostaria de saber mais sobre seus serviços de Agentes IA para WhatsApp",
+      texto_botao: "Ver mais"
     },
     {
       id: 4,
@@ -100,7 +94,9 @@ export function AppContextProvider({ children }) {
         "Desenvolvimento ágil e iterativo",
         "Integração com APIs e serviços externos",
         "Suporte técnico e manutenção contínua"
-      ]
+      ],
+      mensagem: "Olá, gostaria de saber mais sobre seus serviços de Sistema Web Personalizado",
+      texto_botao: "Mais informações"
     }
   ]);
 

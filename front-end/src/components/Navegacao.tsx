@@ -111,7 +111,9 @@ const Navegacao = () => {
     const currentPath = window.location.pathname;
     const isCatalogoPage = currentPath.includes('catalogo');
     const isBriefingPage = currentPath.includes('briefing');
-    const isSpecialPage = isCatalogoPage || isBriefingPage;
+    const isSistemaPage = currentPath.includes('sistema-web');
+    const isAgentePage = currentPath.includes('agente-ia');
+    const isSpecialPage = isCatalogoPage || isBriefingPage || isSistemaPage || isAgentePage;
     
     // Se estamos em página especial (catálogo ou briefing) e o item não é dessa página
     if (isSpecialPage && id !== 'catalogo' && id !== 'briefing') {

@@ -119,7 +119,7 @@ const SliderServicos = () => {
                 ))}
               </ul>
               
-              <BotaoWhatsapp texto="Solicitar este serviço" />
+              <BotaoWhatsapp mensagem={servicos[servicoAtivo].mensagem} texto={servicos[servicoAtivo].texto_botao} />
             </div>
             
             {/* Imagem ilustrativa do serviço */}

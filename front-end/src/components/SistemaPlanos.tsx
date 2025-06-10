@@ -131,6 +131,7 @@ const SistemaPlanos = () => {
                 <div className="p-6 md:p-8 pt-0">
                   <BotaoWhatsapp 
                     texto={`Solicitar orçamento ${plano.nome}`} 
+                    mensagem={`Olá, gostaria de um orçamento para o plano ${plano.nome} de sistema web personalizado.`}
                     className={plano.emDestaque ? "" : "bg-transparent border border-laranja hover:bg-laranja text-laranja hover:text-escuro"}
                   />
                 </div>

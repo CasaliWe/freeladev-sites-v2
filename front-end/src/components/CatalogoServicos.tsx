@@ -28,7 +28,7 @@ const CatalogoServicos = () => {
     {
       id: 1,
       titulo: "Landing Page",
-      valorUnico: "R$ 650",
+      valorUnico: "R$ 800",
       mensalidade: "R$ 35",
       correcoes: "2 rodada",
       descricao: "Página única com foco em conversão.",
@@ -39,13 +39,13 @@ const CatalogoServicos = () => {
         "Integração com WhatsApp",
         "Otimização básica"
       ],
-      linkExterno: "https://exemplo.com/landing-page-demo",
+      linkExterno: "https://funilariaribeiro.com.br/",
       textoLink: "Ver demonstração"
     },
     {
       id: 2,
       titulo: "Website Multi-página",
-      valorUnico: "R$ 1.200",
+      valorUnico: "R$ 1.500",
       mensalidade: "R$ 40",
       correcoes: "3 rodadas",
       descricao: "Site institucional com 3 a 5 páginas.",
@@ -57,13 +57,13 @@ const CatalogoServicos = () => {
         "Responsividade",
         "Painel admin para atualizar todas as informações"
       ],
-      linkExterno: "https://exemplo.com/website-exemplo",
+      linkExterno: "https://aliencore.com.br/",
       textoLink: "Ver exemplo"
     },
     {
       id: 3,
       titulo: "Agente de IA para WhatsApp",
-      valorUnico: "A partir de R$ 1.000",
+      valorUnico: "A partir de R$ 1.200",
       mensalidade: "R$ 65",
       correcoes: "3 rodada de ajustes no fluxo",
       descricao: "Chatbot com IA para atendimento, vendas ou agendamentos.",
@@ -74,13 +74,13 @@ const CatalogoServicos = () => {
         "Uso de API do ChatGPT",
         "Respostas inteligentes 24h"
       ],
-      linkExterno: "https://youtube.com/watch?v=exemplo-ia-bot",
-      textoLink: "Ver demonstração em vídeo"
+      linkExterno: "https://freeladevsites.com.br/agente-ia",
+      textoLink: "Ver mais detalhes"
     },
     {
       id: 4,
       titulo: "E-commerce",
-      valorUnico: "R$ 2.000",
+      valorUnico: "R$ 2.200",
       mensalidade: "R$ 50",
       correcoes: "3 rodadas",
       descricao: "Loja online com exibição de produtos e pedido via WhatsApp ou link de pagamento.",
@@ -91,13 +91,13 @@ const CatalogoServicos = () => {
         "Painel admin para adicionar produtos e informações",
         "Integração com Asaas para receber os pagamentos"
       ],
-      linkExterno: "https://exemplo-loja.com",
+      linkExterno: "https://freeladevsites.com.br/ecommerce",
       textoLink: "Visitar loja modelo"
     },
         {
       id: 5,
       titulo: "Sistema Web Personalizado",
-      valorUnico: "R$ 2.000 a R$ 8.000",
+      valorUnico: "R$ 3.000 a R$ 8.000",
       mensalidade: "R$ 40 a R$ 100",
       correcoes: "5 rodadas",
       descricao: "Sistemas personalizados para seu negócio.",
@@ -109,7 +109,7 @@ const CatalogoServicos = () => {
         "Integração com APIs externas",
         "Hospedagem e suporte técnico incluídos"
       ],
-      linkExterno: "https://exemplo.com/website-exemplo",
+      linkExterno: "https://freeladevsites.com.br/sistema-web",
       textoLink: "Ver exemplo"
     },
   ];
