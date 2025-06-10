@@ -59,7 +59,12 @@ const Briefing = () => {
     "Integração com Redes Sociais",
     "Sistema de Login",
     "Painel Administrativo",
-    "Catálogo de Produtos/Serviços"
+    "Catálogo de Produtos/Serviços",
+    "Vídeos Embutidos",
+    "Animações Interativas",
+    "SEO Avançado",
+    "Integração com API Externa",
+    "Outros"
   ];
   
   // Lista de tipos de conteúdo que podem ser fornecidos

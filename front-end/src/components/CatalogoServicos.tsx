@@ -39,7 +39,7 @@ const CatalogoServicos = () => {
         "Integração com WhatsApp",
         "Otimização básica"
       ],
-      linkExterno: "https://funilariaribeiro.com.br/",
+      linkExterno: "https://tdb.freeladevsites.com.br/",
       textoLink: "Ver demonstração"
     },
     {

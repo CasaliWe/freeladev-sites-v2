@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, Facebook, Instagram } from "lucide-react";
+import { Menu, X, Facebook, Instagram, ChevronDown, ChevronUp } from "lucide-react";
 import BotaoWhatsapp from "./BotaoWhatsapp";
 import { useAppContext } from "@/contexts/AppContext";
 
@@ -21,20 +21,31 @@ const Navegacao = () => {
   // Estado para controlar a visibilidade do menu mobile
   const [menuAberto, setMenuAberto] = useState(false);
   
+  // Estado para controlar o dropdown de serviços
+  const [servicosDropdownAberto, setServicosDropdownAberto] = useState(false);
+  
   // Estado para controlar a aparência da navegação ao rolar
   const [navCompacta, setNavCompacta] = useState(false);
   // Referência para o componente de menu
   const menuRef = useRef<HTMLDivElement>(null);
-  
-  // Lista de itens do menu
+  // Referência para o dropdown de serviços
+  const servicosDropdownRef = useRef<HTMLDivElement>(null);
+    // Lista de itens do menu
   const itensMenu: ItemMenu[] = [
     { nome: "Início", id: "inicio", destaque: false },
-    { nome: "Serviços", id: "servicos", destaque: false },
+    // O item Serviços será tratado separadamente como dropdown
     { nome: "Diferenciais", id: "diferenciais", destaque: false },
     { nome: "Portfólio", id: "portfolio", destaque: false },
     { nome: "Quem Somos", id: "quemSomos", destaque: false },
     { nome: "Contato", id: "contato", destaque: false },
     { nome: "Catálogo", id: "catalogo", pagina: "catalogo", destaque: false },
+  ];
+  
+  // Opções do dropdown de serviços
+  const servicosDropdown = [
+    { nome: "Sistema Web", pagina: "sistema-web" },
+    { nome: "E-commerce", pagina: "ecommerce" },
+    { nome: "Agente IA", pagina: "agente-ia" },
   ];
 
   // Lista de redes sociais
@@ -59,12 +70,15 @@ const Navegacao = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
   // Adiciona manipulador de cliques fora do menu para fechá-lo
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setMenuAberto(false);
+      }
+      
+      if (servicosDropdownRef.current && !servicosDropdownRef.current.contains(event.target as Node)) {
+        setServicosDropdownAberto(false);
       }
     };
 
@@ -185,6 +199,36 @@ const Navegacao = () => {
               {item.nome}
             </a>
           ))}
+          
+          {/* Dropdown de serviços para desktop */}
+          <div className="relative" ref={servicosDropdownRef}>
+            <button 
+              onClick={() => setServicosDropdownAberto(!servicosDropdownAberto)}
+              className="text-white/90 hover:text-laranja transition-colors flex items-center gap-1"
+            >
+              Serviços
+              {servicosDropdownAberto ? (
+                <ChevronUp className="w-4 h-4" />
+              ) : (
+                <ChevronDown className="w-4 h-4" />
+              )}
+            </button>
+            
+            {servicosDropdownAberto && (
+              <div className="absolute top-full mt-2 left-0 bg-secundaria border border-white/10 rounded-lg overflow-hidden shadow-lg z-50 min-w-[180px]">
+                {servicosDropdown.map((servico, idx) => (
+                  <a
+                    key={idx}
+                    href={`/${servico.pagina}`}
+                    className="block px-4 py-3 text-white/90 hover:bg-laranja/20 hover:text-white transition-colors text-sm"
+                  >
+                    {servico.nome}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+          
           <BotaoWhatsapp />
         </nav>
         
@@ -215,10 +259,52 @@ const Navegacao = () => {
             backgroundColor: 'rgba(10, 10, 15, 0.97)', // Fundo escuro ligeiramente transparente
           }}
         >          <nav className="flex flex-col items-center gap-6">
-            {itensMenu.map((item) => (
+            {/* Item Início */}
+            <a
+              href="#inicio"
+              onClick={(e) => {
+                e.preventDefault();
+                navegarParaSecao("inicio");
+              }}
+              className="text-xl text-white/90 hover:text-laranja transition-colors"
+            >
+              Início
+            </a>
+            
+            {/* Dropdown de serviços para mobile */}
+            <div className="flex flex-col items-center">
+              <button 
+                onClick={() => setServicosDropdownAberto(!servicosDropdownAberto)}
+                className="text-xl text-white/90 hover:text-laranja transition-colors flex items-center gap-2"
+              >
+                Serviços
+                {servicosDropdownAberto ? (
+                  <ChevronUp className="w-5 h-5" />
+                ) : (
+                  <ChevronDown className="w-5 h-5" />
+                )}
+              </button>
+              
+              {servicosDropdownAberto && (
+                <div className="flex flex-col items-center mt-2 bg-secundaria/50 rounded-lg p-2">
+                  {servicosDropdown.map((servico, idx) => (
+                    <a
+                      key={idx}
+                      href={`/${servico.pagina}`}
+                      className="py-2 px-6 text-white/80 hover:text-laranja transition-colors text-lg"
+                    >
+                      {servico.nome}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+            
+            {/* Outros itens do menu */}
+            {itensMenu.slice(1).map((item) => (
               <a
                 key={item.id}
-                href={item.pagina ? item.pagina : `#${item.id}`}
+                href={item.pagina ? `/${item.pagina}` : `#${item.id}`}
                 onClick={(e) => {
                   e.preventDefault();
                   navegarParaSecao(item.id, item.pagina);
