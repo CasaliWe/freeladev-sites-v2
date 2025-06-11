@@ -270,53 +270,47 @@ const Navegacao = () => {
             >
               Início
             </a>
+
+            <a
+              href="/agente-ia"
+              className="text-xl text-white/90 hover:text-laranja transition-colors"
+            >
+              Agente IA
+            </a>
+
+            <a
+              href="/ecommerce"
+              className="text-xl text-white/90 hover:text-laranja transition-colors"
+            >
+              E-commerce
+            </a>
+
+            <a
+              href="/sistema-web"
+              className="text-xl text-white/90 hover:text-laranja transition-colors"
+            >
+              Sistema Web
+            </a>
+
+            <a
+              href="/catalogo"
+              className="text-xl text-white/90 hover:text-laranja transition-colors"
+            >
+              Catalogo
+            </a>
+
+            <a
+              href="#contato"
+              onClick={(e) => {
+                navegarParaSecao("contato");
+              }}
+              className="text-xl text-white/90 hover:text-laranja transition-colors"
+            >
+              Contato
+            </a>
             
-            {/* Dropdown de serviços para mobile */}
-            <div className="flex flex-col items-center">
-              <button 
-                onClick={() => setServicosDropdownAberto(!servicosDropdownAberto)}
-                className="text-xl text-white/90 hover:text-laranja transition-colors flex items-center gap-2"
-              >
-                Serviços
-                {servicosDropdownAberto ? (
-                  <ChevronUp className="w-5 h-5" />
-                ) : (
-                  <ChevronDown className="w-5 h-5" />
-                )}
-              </button>
-              
-              {servicosDropdownAberto && (
-                <div className="flex flex-col items-center mt-2 bg-secundaria/50 rounded-lg p-2">
-                  {servicosDropdown.map((servico, idx) => (
-                    <a
-                      key={idx}
-                      href={`/${servico.pagina}`}
-                      className="py-2 px-6 text-white/80 hover:text-laranja transition-colors text-lg"
-                    >
-                      {servico.nome}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
             
-            {/* Outros itens do menu */}
-            {itensMenu.slice(1).map((item) => (
-              <a
-                key={item.id}
-                href={item.pagina ? `/${item.pagina}` : `#${item.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  navegarParaSecao(item.id, item.pagina);
-                }}
-                className={item.destaque 
-                  ? "text-escuro bg-laranja hover:bg-laranja/80 px-6 py-2 rounded-lg font-medium text-xl transition-colors" 
-                  : "text-xl text-white/90 hover:text-laranja transition-colors"
-                }
-              >
-                {item.nome}
-              </a>
-            ))}
+
             
             {/* Botões de redes sociais para mobile */}
             <div className="flex gap-4 mt-4">
