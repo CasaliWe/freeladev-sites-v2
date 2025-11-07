@@ -11,7 +11,7 @@ Website para empresa Freeladev Sites e Sistemas online disponível em: [https://
 ## ⚙️ Tecnologias Utilizadas
 
 - PHP (back-end)  
-- HTML, BOOTSTRAP, JAVASCRIPT (front-end)  
+- React (front-end)  
 - Sqlite como banco de dados   
 - Hospedado em servidor Linux (Ubuntu + Nginx)  
 - Versionamento com Git + GitHub  
