@@ -86,7 +86,8 @@ const Catalogo = () => {
               <BotaoWhatsapp texto="Solicitar orçamento personalizado" />
             </div>
           </div>
-        </section>        {/* Componente de catálogo */}
+        </section>        
+        {/* Componente de catálogo */}
         <CatalogoServicos />
         {/* Componente de comparação */}
         <ComparacaoServicos />

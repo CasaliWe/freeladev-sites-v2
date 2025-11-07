@@ -7,7 +7,6 @@ import Diferenciais from "../components/Diferenciais";
 import Portfolio from "../components/Portfolio";
 import AvaliacoesClientes from "../components/AvaliacoesClientes";
 import PromocaoCatalogo from "../components/PromocaoCatalogo";
-import PromocaoBriefing from "../components/PromocaoBriefing";
 import QuemSomos from "../components/QuemSomos";
 import Contato from "../components/Contato";
 import Rodape from "../components/Rodape";
@@ -106,14 +105,15 @@ const Index = () => {  // Efeito para configurar o título da página e meta tag
     <div className="bg-escuro text-white antialiased min-h-screen">
       {/* Cabeçalho/Navegação */}
       <Navegacao />
-        {/* Seções principais */}      <main>
+
+      {/* Seções principais */}      
+      <main>
         <HeroSection />
         <SliderServicos />
         <Diferenciais />
         <Portfolio />
         <AvaliacoesClientes />
         <PromocaoCatalogo />
-        {/* <PromocaoBriefing /> */}
         <QuemSomos />
         <Contato />
       </main>

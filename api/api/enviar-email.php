@@ -20,7 +20,7 @@ $emailAdmin = $contatos['email_contato_site'];
 
 $user = $_ENV['EMAIL'];
 $senha = $_ENV['SENHA'];
-$host = "smtp.zoho.com";
+$host = "smtp.hostinger.com";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;

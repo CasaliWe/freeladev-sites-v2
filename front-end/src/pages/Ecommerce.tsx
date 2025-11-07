@@ -5,7 +5,6 @@ import BotaoWhatsapp from "../components/BotaoWhatsapp";
 import EcommerceFuncionalidades from "../components/EcommerceFuncionalidades";
 import EcommerceFAQ from "../components/EcommerceFAQ";
 import EcommercePlanos from "../components/EcommercePlanos";
-import EcommerceExemplos from "../components/EcommerceExemplos";
 import EcommerceEtapas from "../components/EcommerceEtapas";
 import { ShoppingBag, ShoppingCart, CreditCard, Truck, Package, Globe } from "lucide-react";
 import AnimacaoScroll from "../components/AnimacaoScroll";

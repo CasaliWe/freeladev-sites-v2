@@ -3,6 +3,8 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// Pages
 import Index from "./pages/Index";
 import Catalogo from "./pages/Catalogo";
 import AgenteIA from "./pages/AgenteIA";
@@ -10,6 +12,7 @@ import SistemaWeb from "./pages/SistemaWeb";
 import Ecommerce from "./pages/Ecommerce";
 import Briefing from "./pages/Briefing";
 import NotFound from "./pages/NotFound";
+
 import { AppContextProvider } from "./contexts/AppContext";
 
 const queryClient = new QueryClient();
@@ -19,7 +22,9 @@ const App = () => (
     <AppContextProvider>
       <TooltipProvider>
         <Toaster />
-        <Sonner />        <BrowserRouter>          <Routes>
+        <Sonner />        
+        <BrowserRouter>          
+          <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/catalogo" element={<Catalogo />} />
             <Route path="/agente-ia" element={<AgenteIA />} />

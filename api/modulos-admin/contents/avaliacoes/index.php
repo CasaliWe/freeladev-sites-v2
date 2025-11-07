@@ -37,7 +37,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="cargo" class="form-label">Empresa</label>
+                                <label for="cargo" class="form-label">Cargo</label>
                                 <input type="text" class="form-control" id="cargo" name="cargo" value="<?= $avaliacao['cargo']; ?>" required>
                             </div>
                             
